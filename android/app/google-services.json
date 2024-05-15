@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "785064073",
+    "project_id": "progaming-tccapp",
+    "storage_bucket": "progaming-tccapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785064073:android:66b50b0c28fd08e6052658",
+        "android_client_info": {
+          "package_name": "com.example.progaming"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbcb5e4X3A37bhVMTPoluAxdxJvj8_7sw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
