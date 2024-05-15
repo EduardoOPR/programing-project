@@ -62,7 +62,7 @@ abstract class VariableDialog<T> extends StatelessWidget {
       enableAddModifyNotifier.value = true;
     }
     return AlertDialog(
-      title: Text('$actionLabel  ${canvasDialog ? 'value' : 'variable'}'),
+      title: Text('$actionLabel  ${canvasDialog ? 'valor' : 'variável'}'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -77,13 +77,13 @@ abstract class VariableDialog<T> extends StatelessWidget {
                   },
                   decoration: const InputDecoration(
                     label: Text(
-                      'Name',
+                      'Nome',
                     ),
                   ),
                   controller: nameController,
                   onChanged: (value) {
                     if (value.isEmpty) {
-                      nameErrorNotifier.value = 'Empty value not allowed';
+                      nameErrorNotifier.value = 'Valor vazio não é permitido';
                     } else {
                       nameErrorNotifier.value = null;
                     }
@@ -100,7 +100,7 @@ abstract class VariableDialog<T> extends StatelessWidget {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     label: const Text(
-                      'Value',
+                      'Valor',
                     ),
                     errorText: valueError,
                   ),
@@ -110,7 +110,7 @@ abstract class VariableDialog<T> extends StatelessWidget {
                   },
                   onChanged: (value) {
                     if (value.isEmpty) {
-                      valueErrorNotifier.value = 'Empty value not allowed';
+                      valueErrorNotifier.value = 'Valor vazio não é permitido';
                     } else {
                       valueErrorNotifier.value = validator(value);
                     }
@@ -128,7 +128,7 @@ abstract class VariableDialog<T> extends StatelessWidget {
               Navigator.of(context).pop();
             },
             child: const Text(
-              'Remove',
+              'Remover',
             ),
           ),
         ValueListenableBuilder<bool>(

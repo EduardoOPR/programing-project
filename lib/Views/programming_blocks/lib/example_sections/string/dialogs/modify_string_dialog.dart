@@ -8,7 +8,7 @@ class ModifyStringDialog extends VariableDialog<ConfigurationBlockModel> {
     required this.onRemove,
   }) : super(
           key: key,
-          actionLabel: 'Modify',
+          actionLabel: 'Modificar',
           enableRemove: true,
           canvasDialog: false,
           validator: (value) {

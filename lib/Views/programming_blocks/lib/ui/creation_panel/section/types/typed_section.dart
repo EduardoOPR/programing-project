@@ -63,7 +63,7 @@ abstract class TypedSection extends CreationSection {
                         : Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8.0),
                             child: Text(
-                              'Add ${_creationData.name}',
+                              'Adicionar ${_creationData.name}',
                               style: TextStyle(
                                 color: _creationData.color,
                               ),

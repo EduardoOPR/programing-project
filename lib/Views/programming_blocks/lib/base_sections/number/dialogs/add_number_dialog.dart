@@ -7,7 +7,7 @@ class AddNumberDialog extends VariableDialog<NumberConfigBlockModel> {
     Key? key,
   }) : super(
             key: key,
-            actionLabel: 'Add',
+            actionLabel: 'Adicionar',
             canvasDialog: false,
             validator: (value) {
               if (double.tryParse(value) == null) {

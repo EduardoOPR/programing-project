@@ -191,7 +191,8 @@ class _PanelState extends State<_Panel> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       columnSize =
-          (globalKey.currentContext!.findRenderObject()! as RenderBox).size;
+          (globalKey.currentContext!.findRenderObject()! as RenderBox).size *
+              1.05;
       setState(() {});
     });
   }
@@ -244,7 +245,7 @@ class _PanelState extends State<_Panel> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4.0),
                       child: SizedBox(
-                        width: columnSize!.width * 1.3,
+                        width: columnSize?.width,
                         child: SingleChildScrollView(
                           child: Column(
                             key: globalKey,

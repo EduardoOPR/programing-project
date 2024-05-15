@@ -7,7 +7,7 @@ class AddStringDialog extends VariableDialog<StringConfigBlockModel> {
     Key? key,
   }) : super(
             key: key,
-            actionLabel: 'Add',
+            actionLabel: 'Adicionar',
             canvasDialog: false,
             validator: (value) {
               return null;

@@ -8,12 +8,12 @@ class ModifyNumberDialog extends VariableDialog<ConfigurationBlockModel> {
     required this.onRemove,
   }) : super(
           key: key,
-          actionLabel: 'Modify',
+          actionLabel: 'Modificar',
           enableRemove: true,
           canvasDialog: false,
           validator: (value) {
             if (double.tryParse(value) == null) {
-              return 'Only numbers allowed';
+              return 'Apenas números são permitidos';
             }
             return null;
           },

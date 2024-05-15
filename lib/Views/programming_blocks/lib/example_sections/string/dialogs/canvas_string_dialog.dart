@@ -10,7 +10,7 @@ class CanvasStringDialog extends VariableDialog {
             key: key,
             canvasDialog: true,
             defaultValue: defaultValue,
-            actionLabel: 'Modify',
+            actionLabel: 'Modificar',
             validator: (value) {
               return null;
             });

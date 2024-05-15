@@ -60,13 +60,13 @@ class AddModifyFunctionDialog extends StatelessWidget {
 
     switch (_dialogType) {
       case DialogType.add:
-        title = 'Add function';
+        title = 'Adicionar função';
         break;
       case DialogType.modify:
         if (isMainCanvas && drawMainScope == false) {
-          title = 'Modify canvas';
+          title = 'Modificar canvas';
         } else {
-          title = 'Modify function';
+          title = 'Modificar função';
         }
         break;
       default:
@@ -84,13 +84,13 @@ class AddModifyFunctionDialog extends StatelessWidget {
                   return TextField(
                     decoration: const InputDecoration(
                       label: Text(
-                        'Name',
+                        'Nome',
                       ),
                     ),
                     controller: nameController,
                     onChanged: (value) {
                       if (value.isEmpty) {
-                        nameErrorNotifier.value = 'Empty value not allowed';
+                        nameErrorNotifier.value = 'Valor vazio não é aceito';
                       } else {
                         nameErrorNotifier.value = null;
                       }
@@ -105,16 +105,17 @@ class AddModifyFunctionDialog extends StatelessWidget {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     label: const Text(
-                      'Width',
+                      'Largura',
                     ),
                     errorText: valueError,
                   ),
                   controller: widthController,
                   onChanged: (value) {
                     if (value.isEmpty) {
-                      widthErrorNotifier.value = 'Empty value not allowed';
+                      widthErrorNotifier.value = 'Valor vazio não é aceito';
                     } else if (double.tryParse(value) == null) {
-                      widthErrorNotifier.value = 'Only numbers allowed';
+                      widthErrorNotifier.value =
+                          'Apenas números são permitidos';
                     } else {
                       widthErrorNotifier.value = null;
                     }
@@ -129,16 +130,17 @@ class AddModifyFunctionDialog extends StatelessWidget {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     label: const Text(
-                      'Height',
+                      'Altura',
                     ),
                     errorText: valueError,
                   ),
                   controller: heightController,
                   onChanged: (value) {
                     if (value.isEmpty) {
-                      widthErrorNotifier.value = 'Empty value not allowed';
+                      widthErrorNotifier.value = 'Valor vazio não é aceito';
                     } else if (double.tryParse(value) == null) {
-                      widthErrorNotifier.value = 'Only numbers allowed';
+                      widthErrorNotifier.value =
+                          'Apenas números são permitidos';
                     } else {
                       widthErrorNotifier.value = null;
                     }
@@ -155,7 +157,8 @@ class AddModifyFunctionDialog extends StatelessWidget {
                   valueListenable: enableAddModifyNotifier,
                   builder: (context, enable, _) {
                     return TextButton(
-                      child: Text(_dialogType == DialogType.add ? 'Add' : 'Ok'),
+                      child: Text(
+                          _dialogType == DialogType.add ? 'Adicionar' : 'Ok'),
                       onPressed: enable
                           ? () {
                               if (_dialogType == DialogType.add) {
@@ -207,7 +210,7 @@ class AddModifyFunctionDialog extends StatelessWidget {
                             }
                           : null,
                       child: const Text(
-                        'Modify',
+                        'Modificar',
                       ),
                     );
                   }),
@@ -222,7 +225,7 @@ class AddModifyFunctionDialog extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                   child: const Text(
-                    'Remove',
+                    'Remover',
                   ),
                 ),
             ],

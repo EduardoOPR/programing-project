@@ -9,10 +9,10 @@ class CanvasNumberDialog extends VariableDialog<double> {
             key: key,
             canvasDialog: true,
             defaultValue: defaultValue,
-            actionLabel: 'Modify',
+            actionLabel: 'Modificar',
             validator: (value) {
               if (double.tryParse(value) == null) {
-                return 'Only numbers allowed';
+                return 'Apenas números são permitidos';
               }
               return null;
             });

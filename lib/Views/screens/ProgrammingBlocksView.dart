@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-//import 'package:progaming/example_algorithms/calculator_algorithm.dart';
+import 'package:progaming/example_algorithms/calculator_algorithm.dart';
 import 'package:progaming/Views/programming_blocks/lib/programming_blocks.dart';
 import 'package:progaming/Views/programming_blocks/lib/example_sections/console/console_section.dart';
 import 'package:progaming/Views/programming_blocks/lib/example_sections/string/strings_section.dart';
@@ -41,7 +41,7 @@ class _ProgrammingBlocksViewState extends State<ProgrammingBlocksView> {
     final FlutterConsoleController consoleController =
         FlutterConsoleController();
     consoleController.hide();
-    /*
+
     //AQUI
     ProgrammingBlocksProjectModel? projectModel;
     projectModel = ProgrammingBlocksProjectModel.fromJson(
@@ -49,14 +49,15 @@ class _ProgrammingBlocksViewState extends State<ProgrammingBlocksView> {
         CalculatorAlgorithm.serializedCode,
       ),
     );
-*/
+
+    //print(projectModel);
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
             Expanded(
               child: ProgrammingBlocks(
-                //projectModel: projectModel, //AQUI
+                projectModel: projectModel, //AQUI
                 onProjectChange: (projectModel) async {
                   await Clipboard.setData(
                       ClipboardData(text: jsonEncode(projectModel.toJson())));
