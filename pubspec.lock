@@ -469,14 +469,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
-  programming_blocks:
-    dependency: "direct main"
-    description:
-      name: programming_blocks
-      sha256: d66340823b8df149157dbd6d3a886838533b902ac7763a00f6d2f2f8271d6d34
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1"
   sky_engine:
     dependency: transitive
     description: flutter

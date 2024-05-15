@@ -6,12 +6,13 @@
 import 'dart:convert';
 
 //import 'package:progaming/example_algorithms/calculator_algorithm.dart';
-import 'package:progaming/example_sections/console/console_section.dart';
-import 'package:progaming/example_sections/string/strings_section.dart';
+import 'package:progaming/Views/programming_blocks/lib/programming_blocks.dart';
+import 'package:progaming/Views/programming_blocks/lib/example_sections/console/console_section.dart';
+import 'package:progaming/Views/programming_blocks/lib/example_sections/string/strings_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_console_widget/flutter_console.dart';
-import 'package:programming_blocks/programming_blocks.dart';
+//import 'package:progaming/Views/programming_blocks/programming_blocks.dart';
 
 class ProgrammingBlocksView extends StatefulWidget {
   const ProgrammingBlocksView({super.key});
