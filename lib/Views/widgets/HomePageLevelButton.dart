@@ -42,7 +42,7 @@ class HomePageLevelButton extends StatelessWidget {
                           ? const Color.fromARGB(255, 107, 7, 92)
                           : const Color.fromARGB(255, 62, 10, 97),
                   blurRadius: 0,
-                  offset: Offset(0, 4), // changes position of shadow
+                  offset: Offset(0, 8), // changes position of shadow
                 ),
               ],
             ),

@@ -16,9 +16,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool isL1Selected = false;
-  bool isL2Selected = false;
-  bool isL3Selected = false;
+  bool isL1Selected = true;
+  bool isL2Selected = true;
+  bool isL3Selected = true;
   double heightSizedBox = 40;
 
   @override
@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: heightSizedBox,
                             ),
                             HomePageLevelButton(
-                              imageSize: imageSize,
+                              imageSize: imageSize * 0.85,
                               ontap: () {
                                 Navigator.pushNamed(context, '/exercise-screen',
                                     arguments: {
@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: heightSizedBox,
                             ),
                             HomePageLevelButton(
-                              imageSize: imageSize * 1.2,
+                              imageSize: imageSize * 1.05,
                               ontap: () {
                                 Navigator.pushNamed(context, '/exercise-screen',
                                     arguments: {
@@ -148,6 +148,20 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                               progress: widget.user.progresso[0]['lista1'],
                               level: 2,
+                              listID: 0,
+                            ),
+                            HomePageLevelButton(
+                              imageSize: imageSize * 1.2,
+                              ontap: () {
+                                Navigator.pushNamed(context, '/exercise-screen',
+                                    arguments: {
+                                      'user': widget.user,
+                                      'ListID': 0,
+                                      'ID': 3,
+                                    });
+                              },
+                              progress: widget.user.progresso[0]['lista1'],
+                              level: 3,
                               listID: 0,
                             ),
                           ],

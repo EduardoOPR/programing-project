@@ -49,6 +49,7 @@ class _ExerciseScreenState extends State<ExerciseScreen>
     for (int i = 0; i < exercisesList.length; i++) {
       exercisesList[i].vidas = user.vidas;
       exercisesList[i].total = exercisesList.length;
+      exercisesList[i].isSelected = false;
       exercisesList[i].onTap = () {
         //Se não for tela de exercicio
         if (!exercisesList[i].isExercise) {
@@ -274,7 +275,10 @@ class _ExerciseScreenState extends State<ExerciseScreen>
               : 50;
       user.moedaAtual += moedas;
       user.moedaTotal += moedas;
-      user.progresso[0][auxL]++;
+      if (user.progresso[0][auxL] <= ID) {
+        user.progresso[0][auxL]++;
+      }
+
       if (user.diasSequencia == user.maxDiasSequencia) {
         user.diasSequencia++;
         user.maxDiasSequencia++;
@@ -283,14 +287,13 @@ class _ExerciseScreenState extends State<ExerciseScreen>
       }
 
       return ResultScreen(
-          moedas: moedas,
-          pAcerto: pAcerto,
-          ontap:
-              () {} /* async {
+        moedas: moedas,
+        pAcerto: pAcerto,
+        ontap: () async {
           await _firebaseService.updateUserData(data: user);
           _functionController.pushPage(context, user);
-        },*/
-          );
+        },
+      );
     } else {
       return exercisesList[pageIndex];
       // _exerciseController.listExercise[exerciseID][userProgress][pageIndex];

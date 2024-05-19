@@ -6,10 +6,11 @@ import 'package:progaming/Views/screens/ProgrammingBlocksView.dart';
 
 import 'package:flutter/material.dart';
 import 'package:progaming/Views/screens/ResgisterScreen.dart';
-//import 'package:progaming/Views/screens/statisticsScreen.dart';
+import 'package:progaming/controller/TimerControler.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:progaming/Views/screens/SplashScreen.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -18,9 +19,10 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    const MaterialApp(
+    MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WebViewApp(),
+      home: ChangeNotifierProvider(
+          create: (BuildContext context) => TimerInfo(), child: WebViewApp()),
     ),
   );
 }
@@ -41,12 +43,12 @@ class _WebViewAppState extends State<WebViewApp> {
       routes: {
         '/main-page-screen': (context) => const MainPageScreen(),
         '/exercise-screen': (context) => const ExerciseScreen(),
-        '/': (context) => const ProgrammingBlocksView(),
-        //'/': (context) => const StatisticsScreen(),
-        //'/': (context) => const SplashScreen(),
+        //'/': (context) => const ProgrammingBlocksView(),
+        //'/': (context) => const LoginScreen(),
+        '/': (context) => const SplashScreen(),
         '/login-screen': (context) => const LoginScreen(),
         '/register-screen': (context) => const RegisterScreen(),
-        '/programing-blocks': (context) => const ProgrammingBlocksView(),
+        //'/programing-blocks': (context) => const ProgrammingBlocksView(),
       },
     );
   }
