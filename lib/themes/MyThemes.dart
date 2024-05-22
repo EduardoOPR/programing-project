@@ -6,7 +6,7 @@ class MyThemes {
   static Color deepPurple = const Color(0xFF3A0CA3);
   static Color lightPurple = const Color(0xFF851FC8);
   static Color pink = const Color(0xFFB5179E);
-  static Color lightBlue = const Color(0xFF4895EF);
+  static Color lightBlue = Color.fromARGB(255, 58, 133, 219);
   static Color superLightBlue = const Color(0xFFE9FCFF);
   static Color infoLightBlue = const Color(0xFFE4F7FF);
   static Color red = Color.fromARGB(255, 158, 17, 36);

@@ -84,18 +84,20 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   ContainerHomePage(
-                      containerWidth: containerWidth,
-                      userprogress: widget.user.progresso[0]['lista1'],
-                      imgPath: 'assets/images/Runner.png',
-                      title: 'Inicio da Jornada',
-                      isLeft: true,
-                      boxColor: const Color(0xFFF72585),
-                      imgSize: imageSize,
-                      onTap: () {
-                        setState(() {
-                          isL1Selected = !isL1Selected;
-                        });
-                      }),
+                    containerWidth: containerWidth,
+                    userprogress: widget.user.progresso[0]['lista1'],
+                    imgPath: 'assets/images/Runner.png',
+                    title: 'Inicio da Jornada',
+                    isLeft: true,
+                    boxColor: const Color(0xFFF72585),
+                    imgSize: imageSize,
+                    onTap: () {
+                      setState(() {
+                        isL1Selected = !isL1Selected;
+                      });
+                    },
+                    listLength: 4,
+                  ),
                   isL1Selected
                       ? Column(
                           children: [
@@ -150,6 +152,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               level: 2,
                               listID: 0,
                             ),
+                            SizedBox(
+                              height: heightSizedBox,
+                            ),
                             HomePageLevelButton(
                               imageSize: imageSize * 1.2,
                               ontap: () {
@@ -185,6 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             'ListID': 1,
                           });*/
                     },
+                    listLength: 3,
                   ),
                   isL2Selected
                       ? Column(
@@ -261,6 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             'ListID': 2,
                           });*/
                     },
+                    listLength: 3,
                   ),
                   isL3Selected
                       ? Column(
@@ -315,6 +322,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               progress: widget.user.progresso[0]['lista3'],
                               level: 2,
                               listID: 2,
+                            ),
+                            SizedBox(
+                              height: heightSizedBox,
                             ),
                           ],
                         )

@@ -1,7 +1,7 @@
 import 'package:progaming/Views/programming_blocks/lib/example_sections/string/string_puzzle_piece.dart';
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_console_widget/flutter_console.dart';
+import 'package:progaming/Views/widgets/flutter_console_widget/flutter_console.dart';
 import 'package:progaming/Views/programming_blocks/lib/models/block_type.dart';
 
 import 'package:progaming/Views/programming_blocks/lib/ui/creation_panel/section/creation_section_data.dart';

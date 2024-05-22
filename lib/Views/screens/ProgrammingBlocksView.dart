@@ -13,20 +13,14 @@ import 'package:progaming/Views/programming_blocks/lib/example_sections/console/
 import 'package:progaming/Views/programming_blocks/lib/example_sections/string/strings_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_console_widget/flutter_console.dart';
+import 'package:progaming/Views/widgets/flutter_console_widget/flutter_console.dart';
 import 'package:provider/provider.dart';
 //import 'package:progaming/Views/programming_blocks/programming_blocks.dart';
 
 class ProgrammingBlocksView extends StatefulWidget {
-  const ProgrammingBlocksView(
-      {super.key,
-      required this.progress,
-      required this.vidas,
-      required this.total});
-
-  final int progress;
-  final int vidas;
-  final int total;
+  const ProgrammingBlocksView({
+    super.key,
+  });
 
   @override
   State<ProgrammingBlocksView> createState() => _ProgrammingBlocksViewState();
@@ -74,16 +68,6 @@ class _ProgrammingBlocksViewState extends State<ProgrammingBlocksView> {
       body: SafeArea(
         child: Column(
           children: [
-            /*
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              //BARRA SUPERIOR
-              child: ExerciseAppBar(
-                progress: widget.progress,
-                total: widget.total,
-                vidas: widget.vidas,
-              ),
-            ),*/
             Expanded(
               child: ProgrammingBlocks(
                 projectModel: projectModel, //AQUI

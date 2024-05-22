@@ -2,7 +2,7 @@ import 'package:progaming/Views/programming_blocks/lib/example_sections/string/i
 import 'package:progaming/Views/programming_blocks/lib/example_sections/string/string_serializable.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_console_widget/flutter_console.dart';
+import 'package:progaming/Views/widgets/flutter_console_widget/flutter_console.dart';
 import 'package:progaming/Views/programming_blocks/lib/models/block_type.dart';
 import 'package:progaming/Views/programming_blocks/lib/models/programming_block_model.dart';
 import 'package:progaming/Views/programming_blocks/lib/ui/creation_panel/section/creation_section_data.dart';
@@ -60,7 +60,7 @@ class PrintStringBlockType extends BlockType {
                 blockController?.blockModel.panelArguments['end_line'] = value;
                 blockController?.refreshPanel();
               }),
-          const Text('Fim'),
+          const Text('Pular Linha'),
         ],
       );
 

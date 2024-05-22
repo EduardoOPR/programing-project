@@ -40,7 +40,7 @@ class WhileBlockType extends BlockType {
 
   @override
   Widget nameBuilder(ProgrammingBlockController? blockController) =>
-      const Text('Em quanto');
+      const Text('Enquanto');
 
   @override
   Widget panelBuilder(ProgrammingBlockController? blockController) {

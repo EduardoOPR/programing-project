@@ -71,7 +71,7 @@ class BlockDragTarget extends StatelessWidget {
             }
             final playClick = onBlockDroped(blockModel);
             if (playClick) {
-              programmingBlocks.paySound('click.mp3');
+              //programmingBlocks.paySound('click.mp3');
             }
             programmingBlocks.onProjectChange?.call(
               programmingBlocks.projectModel,

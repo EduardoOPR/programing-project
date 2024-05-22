@@ -1,4 +1,4 @@
-import 'package:flutter_console_widget/flutter_console.dart';
+import 'package:progaming/Views/widgets/flutter_console_widget/flutter_console.dart';
 import 'package:flutter/material.dart';
 import 'package:progaming/Views/programming_blocks/lib/base_sections/number/input_targets/number_input_target.dart';
 import 'package:progaming/Views/programming_blocks/lib/base_sections/number/number_serializable.dart';
@@ -59,7 +59,7 @@ class PrintNumberBlockType extends BlockType {
                 blockController?.blockModel.panelArguments['end_line'] = value;
                 blockController?.refreshPanel();
               }),
-          const Text('Fim'),
+          const Text('Pular Linha'),
         ],
       );
 

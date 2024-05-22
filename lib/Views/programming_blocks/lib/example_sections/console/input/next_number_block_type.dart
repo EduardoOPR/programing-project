@@ -1,4 +1,4 @@
-import 'package:flutter_console_widget/flutter_console.dart';
+import 'package:progaming/Views/widgets/flutter_console_widget/flutter_console.dart';
 import 'package:progaming/Views/programming_blocks/lib/base_sections/number/number_puzzle_piece.dart';
 import 'package:progaming/Views/programming_blocks/lib/base_sections/number/number_serializable.dart';
 import 'package:flutter/widgets.dart';

@@ -34,9 +34,9 @@ class _FollowSection extends SimpleSection {
               WhileBlockType(
                 sectionData: sectionData,
               ),
-              DelayBlockType(
+              /*DelayBlockType(
                 sectionData: sectionData,
-              ),
+              ),*/
             ],
             key: key);
 }

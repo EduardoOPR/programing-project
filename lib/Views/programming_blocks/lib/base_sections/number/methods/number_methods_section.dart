@@ -32,9 +32,9 @@ class _NumberMethodsSection extends SimpleSection {
               RandomBlockType(
                 sectionData: sectionData,
               ),
-              MapBlockType(
+              /*MapBlockType(
                 sectionData: sectionData,
-              ),
+              ),*/
             ],
             key: key);
 }

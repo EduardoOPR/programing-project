@@ -34,6 +34,7 @@ class ProjectModelSingletonBuilder {
     ], configurationModels: [
       mainFuntion,
     ]);
+
     return projectModel!;
   }
 

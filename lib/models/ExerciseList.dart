@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:progaming/Views/screens/ExerciseScreenInfo.dart';
+import 'package:progaming/example_algorithms/calculator_algorithm.dart';
 import 'package:progaming/themes/MyThemes.dart';
 
+/*
+  1-1: programação e software
+  1-2: algoritmo
+  1-3: variáveis e tipos de variáveis
+  1-4: operadores
+
+  2-1: estruturas condicionas: if e else e condições (>, <, >=, <=, ==)
+  2-2: estruturas de repetição : while
+  2-3: estruturas de repetição: do while e for
+*/
 class ExerciseController {
   List<List<List<ExerciseScreenInfo>>> listExercise = [
     //LISTA 1
@@ -598,8 +609,368 @@ class ExerciseController {
           answer: 2,
           selectedIndex: [false, false, false, false],
         ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'O que é uma String em programação?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Quanto ao tipo String',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'Um tipo de brinquedo',
+            'Uma sequência de caracteres, como letras e números',
+            'Um tipo de variável que só pode armazenar números inteiros',
+            'Um tipo de animal',
+          ],
+          answer: 1,
+          selectedIndex: [false, false, false, false],
+        ),
       ],
-      [],
+      [
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/calculadora.png',
+          boxText: TextSpan(
+              text:
+                  'Os operadores são símbolos que usamos em programação para fazer várias operações com os números, como ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 17, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'somar, subtrair, multiplicar e dividir',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 17, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        '. Eles funcionam como os sinais de matemática que você já conhece assim como a combinação de vários operadores também seguem a mesma ordem:\n\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 17, textColor: Colors.black)),
+                TextSpan(
+                    text: '1º ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 17, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: 'Operações entre Parênteses "()"\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 17, textColor: Colors.black)),
+                TextSpan(
+                    text: '2º ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 17, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: 'Multiplicação e Divisão "* e /"\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 17, textColor: Colors.black)),
+                TextSpan(
+                    text: '3º ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 17, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: 'Soma e Subtração "+ e -"',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 17, textColor: Colors.black)),
+              ]),
+          title: 'O que são Operadores?',
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'noimage',
+          boxText: TextSpan(
+              text: 'Aqui estão alguns dos operadores mais comuns:\n\n',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 16, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Operador de atribuição (=): ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: 'Atribui um valor à uma variável, exemplo:\nX = 5 ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: '#Salva o número 5 no x\n\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18,
+                        textColor: Color.fromARGB(255, 85, 84, 84))),
+                TextSpan(
+                    text: 'Operador de Adição (+): ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: 'Soma dois números. exemplo: \nresultado = 3 + 2.',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: ' #O resultado será 5\n\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18,
+                        textColor: Color.fromARGB(255, 85, 84, 84))),
+                TextSpan(
+                    text: 'Operador de Subtração (-): ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        'Subtrai um número do outro. exemplo:\nresultado = 5 - 2',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: ' #O resultado será 3\n\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18,
+                        textColor: Color.fromARGB(255, 85, 84, 84))),
+                TextSpan(
+                    text: 'Operador de Multiplicação (*): ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        'Multiplica dois números. exemplo:\nresultado = 4 * 2 ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: '#O resultado será 8\n\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18,
+                        textColor: Color.fromARGB(255, 85, 84, 84))),
+                TextSpan(
+                    text: 'Operador de Divisão (/): ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        'Divide um número pelo outro exemplo:\nresultado = 10 / 2  ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: '#O resultado será 5',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18,
+                        textColor: Color.fromARGB(255, 85, 84, 84))),
+              ]),
+          title: '',
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'Qual será o resultado da expressão 7 + 5?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Operador de Adição',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            '10',
+            '11',
+            '12',
+            '13',
+          ],
+          answer: 2,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: ' Qual será o resultado da expressão 15 - 6?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Operador de Subtração',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            '7',
+            '8',
+            '9',
+            '10',
+          ],
+          answer: 2,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: ' Qual dos operadores a seguir é o responsável pela divisão?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Quanto aos Operadores',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            '=',
+            '/',
+            '*',
+            '-',
+          ],
+          answer: 1,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'Qual será o resultado da expressão 4 * 3?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Operador de Multiplicação',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            '9',
+            '10',
+            '11',
+            '12',
+          ],
+          answer: 3,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text:
+                'Qual dos operadores a seguir é responsável por realizar atribuição?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Quantos aos Operadores',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            '*',
+            '/',
+            '-',
+            '=',
+          ],
+          answer: 3,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text:
+                'Qual será o resultado da expressão 3 + 2 * 4? (Lembre-se da ordem das operações)',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Combinação de Operadores',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            '11',
+            '20',
+            '14',
+            '21',
+          ],
+          answer: 0,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'O que a linha de código a seguir faz:\n',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 19, textColor: Colors.black),
+            children: <TextSpan>[
+              TextSpan(
+                  text: 'variavel = variavel + 1',
+                  style: MyThemes.josefinSansBold(
+                      fontSize: 17, textColor: MyThemes.lightBlue)),
+            ],
+          ),
+          title: 'Qual das altenativas está CORRETA',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'A variável receberá seu próprio valor mais 1',
+            'A variável passará a guardar o valor 1',
+            'A variável terá seu valor diminuído',
+            'A variável não irá alterar'
+          ],
+          answer: 0,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'Qual será o resultado da expressão (8 / 2) + (3 * 3)?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Operadores em uma Expressão Complexa',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            '11',
+            '12',
+            '13',
+            '14',
+          ],
+          answer: 2,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text:
+                'Qual é a função de um operador de atribuição em programação?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Marque a alternativa CORRETA ',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'Comparar valores',
+            'Adicionar números',
+            'Atribuir um valor a uma variável',
+            'Dividir números',
+          ],
+          answer: 2,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'Qual será o resultado da expressão 10 - 4 / 2?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Ordem das Operações',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            '3',
+            '8',
+            '5',
+            '6',
+          ],
+          answer: 1,
+          selectedIndex: [false, false, false, false],
+        ),
+      ],
     ],
     //LISTA 2
     [
@@ -1196,12 +1567,428 @@ class ExerciseController {
           selectedIndex: [false, false, false, false],
         ),
       ],
-      [],
+      [
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/escorregador.png',
+          boxText: TextSpan(
+              text: 'O loop "Faça Enquanto" é um tipo de loop que ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 17, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text:
+                        'sempre executa o bloco de código pelo menos uma vez,',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 17, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        ' mesmo que a condição seja falsa na primeira verificação, sendo essa a diferença para o Loop "Enquanto" que verifica antes de executar um bloco de código. \nPor exemplo: Uma pessoa subindo em um escorregador e escorregando. Mesmo que a condição (querer escorregar) não seja mais verdadeira após uma vez, a pessoa sempre escorrega pelo menos uma vez.',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 17, textColor: Colors.black)),
+              ]),
+          title: 'Loop "Faça Enquanto" (do while)',
+          total: 9,
+          isExercise: false,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/dowhile.png',
+          boxText: TextSpan(
+              text:
+                  'O exemplo anterior é mostrado a seguir no formato de um código e pode explicado da seguinte forma:\n\nComo o computador lê o código de cima para baixo primeiramente ele vai ler o "',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 18, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Descer o escorregador',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: '" e só depois ele vai checar a condição "',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+                TextSpan(
+                    text: 'querer descer o escorregado',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        '", fazendo com que ele desça pelo menos uma vez antes de checar se ele realmente queria descer',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+              ]),
+          title: 'Loop "Faça Enquanto" (do while)',
+          total: 9,
+          isExercise: false,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+              text: 'Qual é a principal diferença entre o loop ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 18, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Faça Enquanto',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: ' (do while) e o loop ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+                TextSpan(
+                    text: 'Enquanto',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: ' (while)?',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+              ]),
+          title: 'A partir do algoritmo abaixo responda:',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            '"Faça Enquanto" verifica a condição antes de executar o bloco de código',
+            '"Faça Enquanto" pode não executar o bloco de código nenhuma vez',
+            '"Faça Enquanto" sempre executa o bloco de código pelo menos uma vez.',
+            '"Faça Enquanto" é usado apenas para contar até 5',
+          ],
+          answer: 2,
+          imgScale: 1.8,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'O que o símbolo "<" significa em programação?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 19, textColor: Colors.black),
+          ),
+          title: 'Qual das altenativas está CORRETA',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const ['Menor que', 'Maior que', 'igual', 'Diferente de'],
+          answer: 0,
+          isReview: true,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/dowhile1.png',
+          boxText: TextSpan(
+              text:
+                  'Qual será o valor final da variável Contador ao final do loop?',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 20, textColor: Colors.black)),
+          title: 'Em relação ao código a seguir:',
+          total: 9,
+          isExercise: true,
+          exerciseType: "3A",
+          option: const [
+            '0',
+            '1',
+            '2',
+            '3',
+          ],
+          answer: 3,
+          imgScale: 1.8,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text:
+                'O que acontecerá se a condição no "Faça Enquanto" for falsa na primeira verificação?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 18, textColor: Colors.black),
+          ),
+          title: 'A partir do algoritmo abaixo responda:',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'O loop nunca será executado.',
+            'O loop será executado uma vez e depois parará.',
+            'O loop será executado infinitamente',
+            'O loop só será executado se a condição for verdadeira.',
+          ],
+          answer: 1,
+          imgScale: 1.8,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/dowhile2.png',
+          boxText: TextSpan(
+              text:
+                  'Qual será o valor final da variável Contador ao final do loop?',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 20, textColor: Colors.black)),
+          title: 'Em relação ao código a seguir:',
+          total: 9,
+          isExercise: true,
+          exerciseType: "3A",
+          option: const [
+            '-1',
+            '0',
+            '1',
+            '2',
+          ],
+          answer: 0,
+          imgScale: 1.8,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/hands.png',
+          boxText: TextSpan(
+              text: 'O loop "for" é usado quando você ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 17, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'sabe exatamente quantas vezes quer repetir uma ação',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 17, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        '. Ele é como um contador que sabe de antemão quantas vezes vai contar. \nPor exemplo: caso você queira contar os 10 dedos das mãos, você sabe exatamente quantas vezes precisa contar (10). Onde cada dedo que você usa na contagem representa uma repetição do loop, e a contagem é clara e definida.',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 17, textColor: Colors.black)),
+              ]),
+          title: 'Loop "Para" (for)',
+          total: 9,
+          isExercise: false,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/for.png',
+          boxText: TextSpan(
+              text: '\n',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 18, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Início: ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: 'Define o ponto de partida.\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+                TextSpan(
+                    text: 'Condição: ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: 'Define até quando o loop deve continuar. \n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+                TextSpan(
+                    text: 'Incremento: ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        'Define como o contador muda a cada repetição.\n\nAlém disso é necessário uma variável que irá armazenar o valor da contagem, que será incrementado a cada repetição, no exemplo abaixo ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+                TextSpan(
+                    text: 'Contagem_Dos_Dedos',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        ' é essa variável, e ela vai variar de 1 até 10, onde a cada repetição um dedo será contado',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+              ]),
+          title: 'Como um Loop "Para" funciona em uma linguagem de programação',
+          total: 9,
+          isExercise: false,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text:
+                'Qual dos seguintes loops é mais apropriado para executar um bloco de código um número específico de vezes conhecido antes da execução?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 18, textColor: Colors.black),
+          ),
+          title: 'Marque a alternativa CORRETA',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'Nenhuma das alternativas',
+            'Enquanto (while)',
+            'Faça Equanto (do while)',
+            'Para (for)',
+          ],
+          answer: 3,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'O que a linha de código a seguir faz:\n',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 19, textColor: Colors.black),
+            children: <TextSpan>[
+              TextSpan(
+                  text: 'variavel = variavel + 1',
+                  style: MyThemes.josefinSansBold(
+                      fontSize: 17, textColor: MyThemes.lightBlue)),
+            ],
+          ),
+          title: 'Qual das altenativas está CORRETA',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'A variável receberá seu próprio valor mais 1',
+            'A variável passará a guardar o valor 1',
+            'A variável terá seu valor diminuído',
+            'A variável não irá alterar'
+          ],
+          answer: 0,
+          isReview: true,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/for1.png',
+          boxText: TextSpan(
+              text:
+                  'Qual será o valor final da variável soma, dado que seu valor inicial é 0?',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 20, textColor: Colors.black)),
+          title: 'Em relação ao código a seguir:',
+          total: 9,
+          isExercise: true,
+          exerciseType: "3A",
+          option: const [
+            '5',
+            '0',
+            '4',
+            '6',
+          ],
+          answer: 0,
+          imgScale: 1.8,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/for1.png',
+          boxText: TextSpan(
+              text:
+                  'Qual será o valor final da variável Soma, dado que seu valor inicial é 3?',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 20, textColor: Colors.black)),
+          title: 'Em relação ao código a seguir:',
+          total: 9,
+          isExercise: true,
+          exerciseType: "3A",
+          option: const [
+            '5',
+            '3',
+            '8',
+            '7',
+          ],
+          answer: 2,
+          imgScale: 1.8,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/for2.png',
+          boxText: TextSpan(
+              text: 'Qual será o valor final da variável Soma?',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 20, textColor: Colors.black)),
+          title: 'Em relação ao código a seguir:',
+          total: 9,
+          isExercise: true,
+          exerciseType: "3A",
+          option: const [
+            '0',
+            '8',
+            '16',
+            '32',
+          ],
+          answer: 0,
+          imgScale: 1.8,
+          selectedIndex: [false, false, false, false],
+        ),
+      ],
     ],
     [
       [
+        //Primeiro tem que ter exerciseType como 2A mesmo não sendo, pra ativiar o comando no initState
         ExerciseScreenInfo(
-          imgPath: 'assets/images/rain.png',
+          title: 'Programação em blocos',
+          imgPath: 'assets/images/bloco0.png',
+          boxText: TextSpan(
+              text:
+                  'Agora que já aprendemos alguns conceitos básicos da programação chegou a hora de praticar, e isso será feito através da ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 16, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Programação em Blocos',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        '. \nA Programação em Blocos nada mais é do que uma forma de criar um programa de computador como se você estivesse montando um quebra-cabeças, onde cada peça faz uma instrução específica, sendo essas instruções as mesmas que você já viu no decorrer dos exercícios!',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          exerciseType: '2A',
+          imgScale: 0.5,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Apresentando a tela principal',
+          imgPath: 'assets/images/tutorial.png',
+          boxText: TextSpan(
+            text:
+                'Na tela vemos dois botões principais, um botão de Play e uma peça de quebra-cabeça\n\nO botão de play executa o programa que você montou, mostrando um tela preto com a saída do seu código\njá a peça de qubra-cabeça mostra e esconde o menu que contém todas as peças que você poderá utilizar',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 18, textColor: Colors.black),
+          ),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Bloco Escreva',
+          imgPath: 'assets/images/escreva.png',
+          boxText: TextSpan(
+              text:
+                  'Agora vamos começar a falar sobre os diferentes blocos/peças que você pode utilizar, sendo o primeiro deles o bloco ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 18, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Escreva',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text:
+                        '.\nEsse bloco pode ser acessado no menu Console, que será o menu que conterá os blocos de entradas e saídas de valores, sendo o Escreva o bloco de saída\n Existem dois tipos de escreva, um para números e outro para Strings, além disso cada bloco possui uma caixa depois do valor escrita Pular Linha, ao marcar essa caixa será pulada uma linha depois do conteúdo ser escrito na tela.',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
           boxText: TextSpan(
             text: '',
             style: MyThemes.josefinSansRegular(
@@ -1211,11 +1998,28 @@ class ExerciseController {
           total: 9,
           isExercise: true,
           exerciseType: '2A',
+          showCategory: [false, true, false, false, false, false],
+          blockString: CalculatorAlgorithm.olaMundo,
           selectedIndex: [false, false, false, false],
         ),
       ],
       [],
-      []
+      [
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'Se (if) e Senão (else)',
+          total: 9,
+          isExercise: true,
+          exerciseType: '2A',
+          blockString: CalculatorAlgorithm.serializedCode,
+          selectedIndex: [false, false, false, false],
+        ),
+      ]
     ]
   ];
 

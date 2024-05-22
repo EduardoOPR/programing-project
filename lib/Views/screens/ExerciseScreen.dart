@@ -1,6 +1,8 @@
 //TODO Forma de adicionar uma tela de (Hora de corrigir os erros) e alterar os dados do usuário depois de concluir os exercícios
 
 //import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:progaming/Views/screens/ExerciseScreenInfo.dart';
 //import 'package:progaming/Views/screens/HomeScreen.dart';
@@ -9,9 +11,11 @@ import 'package:progaming/Views/widgets/ExerciseColoredButton.dart';
 //import 'package:progaming/Views/widgets/ProgressExerciseBar.dart';
 import 'package:progaming/controller/FirebaseService.dart';
 import 'package:progaming/controller/FunctionsController.dart';
+import 'package:progaming/controller/TimerControler.dart';
 import 'package:progaming/models/UserModel.dart';
 import 'package:progaming/themes/MyThemes.dart';
 import 'package:progaming/models/ExerciseList.dart';
+import 'package:provider/provider.dart';
 
 class ExerciseScreen extends StatefulWidget {
   const ExerciseScreen({super.key});
@@ -239,12 +243,6 @@ class _ExerciseScreenState extends State<ExerciseScreen>
 
   @override
   void initState() {
-    /*final args =
-        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
-    user = args['user'];
-    print(args['ListID']);
-    exerciseID = args['ListID'];
-    exercisesList = _exerciseController.listExercise[exerciseID];*/
     super.initState();
     controller = AnimationController(
       duration: const Duration(seconds: 0),

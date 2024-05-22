@@ -33,7 +33,7 @@ dependencies:
   collection: ^1.17.0
   async: ^2.10.0
   audioplayers: ^5.2.1
-  flutter_console_widget: ^0.0.3
+  #flutter_console_widget: ^0.0.3
   zoom_widget: ^2.0.1
   google_fonts: ^5.1.0
   email_validator: '^2.1.16'

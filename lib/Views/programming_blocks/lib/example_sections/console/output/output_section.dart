@@ -1,7 +1,7 @@
 import 'package:progaming/Views/programming_blocks/lib/example_sections/console/output/print_number_block_type.dart';
 import 'package:progaming/Views/programming_blocks/lib/example_sections/console/output/print_string_block_type.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_console_widget/flutter_console.dart';
+import 'package:progaming/Views/widgets/flutter_console_widget/flutter_console.dart';
 import 'package:progaming/Views/programming_blocks/lib/ui/creation_panel/section/creation_section_data.dart';
 import 'package:progaming/Views/programming_blocks/lib/ui/creation_panel/section/types/simple_section.dart';
 

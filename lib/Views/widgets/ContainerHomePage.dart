@@ -13,6 +13,7 @@ class ContainerHomePage extends StatelessWidget {
     required this.userprogress,
     required this.imgSize,
     required this.onTap,
+    required this.listLength,
   });
 
   final double containerWidth;
@@ -23,6 +24,7 @@ class ContainerHomePage extends StatelessWidget {
   final Color boxColor;
   final double imgSize;
   final Function()? onTap;
+  final int listLength;
 
   @override
   Widget build(BuildContext context) {
@@ -53,13 +55,13 @@ class ContainerHomePage extends StatelessWidget {
                           fontSize: 20, textColor: Colors.white),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   ProgressBar(
                       width: containerWidth,
                       userProgress: userprogress,
-                      total: 3,
+                      total: listLength,
                       barColor: boxColor),
                 ],
               ),

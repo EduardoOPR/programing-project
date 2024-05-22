@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'dart:developer';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart' hide TabBar;
 import 'package:progaming/Views/programming_blocks/lib/models/block_type.dart';
@@ -334,6 +338,9 @@ class ProgrammingBlocksDependency extends InheritedWidget {
     BlockType? blockType = typeByBlockModel(
       blockModel: _blockModel,
     );
+    //TODO AQUI TÁ O SEGREDO
+    print('__________________________');
+    log(jsonEncode(projectModel.toJson()));
 
     return blockType!.execute(
       ExecutionBlockController(

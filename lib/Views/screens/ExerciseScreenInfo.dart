@@ -2,9 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_console_widget/flutter_console.dart';
-import 'package:flutter_console_widget/flutter_console_controller.dart';
+import 'package:progaming/Views/widgets/flutter_console_widget/flutter_console.dart';
+import 'package:progaming/Views/widgets/flutter_console_widget/flutter_console_controller.dart';
 import 'package:progaming/Views/programming_blocks/lib/example_sections/console/console_section.dart';
 import 'package:progaming/Views/programming_blocks/lib/example_sections/string/strings_section.dart';
 import 'package:progaming/Views/programming_blocks/lib/models/programming_blocks_project_model.dart';
@@ -32,12 +33,14 @@ class ExerciseScreenInfo extends StatefulWidget {
       required this.isExercise,
       this.exerciseType = '',
       this.option = const [],
+      this.showCategory = const [true, true, true, true, true, true],
       //this.answerIndex = 0,
       this.answer = 5,
       this.vidas = 6,
       this.imgScale = 1,
       this.isReview = false,
       this.isSelected = false,
+      this.blockString = '',
       required this.selectedIndex});
 
   final String imgPath;
@@ -56,15 +59,14 @@ class ExerciseScreenInfo extends StatefulWidget {
   List<bool> selectedIndex;
   double imgScale;
   bool isSelected;
+  List<bool> showCategory;
+  String blockString;
 
   @override
   State<ExerciseScreenInfo> createState() => _ExerciseScreenInfoState();
 }
 
 class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
-  //bool isSelected = false;
-  //List<bool> selectedIndex = [false, false, false, false];
-
   final ExerciseController _exerciseController = ExerciseController();
 
   ontapFunction(int currentIndex) {
@@ -85,10 +87,9 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
 
   @override
   void initState() {
-    // TODO: implement initState
     if (widget.exerciseType == "2A") {
+      var timerInfo = Provider.of<TimerInfo>(context, listen: false);
       Timer.periodic(const Duration(seconds: 1), (timer) {
-        var timerInfo = Provider.of<TimerInfo>(context, listen: false);
         timerInfo.updateRemainingTime();
       });
     }
@@ -97,132 +98,136 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
 
   @override
   Widget build(BuildContext context) {
+    //Pegando a altura física do dispositivo sem usar MediaQuaery
+    final double physicalHeight = WidgetsBinding
+        .instance.platformDispatcher.views.first.physicalSize.height;
+    final double devicePixelRatio =
+        WidgetsBinding.instance.platformDispatcher.views.first.devicePixelRatio;
+    final double height = physicalHeight / devicePixelRatio;
+    //Pegando a largura da mesma forma que a altura
+    final double physicalWidth = WidgetsBinding
+        .instance.platformDispatcher.views.first.physicalSize.width;
+    final double width = physicalWidth / devicePixelRatio;
+
     const double vPadding = 30;
-    double sizedBoxSpace = MediaQuery.of(context).size.height * 0.07;
+    double sizedBoxSpace = height * 0.07;
+
     return Scaffold(
+      //resizeToAvoidBottomInset: false,
       backgroundColor:
           widget.isExercise ? Colors.white : MyThemes.infoLightBlue,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 20, bottom: 30),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: vPadding, right: vPadding, bottom: 10),
-                //BARRA SUPERIOR
-                child: ExerciseAppBar(
-                  progress: widget.progress,
-                  total: widget.total,
-                  vidas: widget.vidas,
-                ),
-              ),
-              widget.isReview
-                  ? Padding(
+          child: widget.exerciseType == '2A' && widget.isExercise
+              ? BodyExerciseScreen(sizedBoxSpace, vPadding, widget.exerciseType,
+                  widget.imgPath, height, width)
+              : Column(
+                  children: [
+                    Padding(
                       padding: const EdgeInsets.only(
-                          left: vPadding, right: vPadding, top: 10),
-                      child: Row(
-                        children: [
-                          Spacer(),
-                          Container(
-                            width: 100,
-                            height: 20,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: const Color.fromARGB(255, 192, 174, 10)),
-                            child: Center(
-                              child: Text(
-                                'Revisão',
-                                textAlign: TextAlign.end,
-                                style: MyThemes.josefinSansBold(
-                                    fontSize: 18, textColor: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ],
+                          left: vPadding, right: vPadding, bottom: 10),
+                      //BARRA SUPERIOR
+                      child: ExerciseAppBar(
+                        progress: widget.progress,
+                        total: widget.total,
+                        vidas: widget.vidas,
                       ),
-                    )
-                  : Container(),
+                    ),
+                    widget.isReview
+                        ? Padding(
+                            padding: const EdgeInsets.only(
+                                left: vPadding, right: vPadding, top: 10),
+                            child: Row(
+                              children: [
+                                const Spacer(),
+                                Container(
+                                  width: 100,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: const Color.fromARGB(
+                                          255, 192, 174, 10)),
+                                  child: Center(
+                                    child: Text(
+                                      'Revisão',
+                                      textAlign: TextAlign.end,
+                                      style: MyThemes.josefinSansBold(
+                                          fontSize: 18,
+                                          textColor: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        : Container(),
 
-              //CONTEÚDO DA PÁGINA
-              widget.isExercise
-                  ? BodyExerciseScreen(sizedBoxSpace, vPadding,
-                      widget.exerciseType, widget.imgPath)
-                  : Expanded(
-                      child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding:
-                              const EdgeInsets.symmetric(horizontal: vPadding),
-                          child: Text(
-                            widget.title,
-                            style: widget.title.length > 25
-                                ? widget.title.length > 50
-                                    ? MyThemes.josefinSansRegular(
-                                        fontSize: 18, textColor: Colors.black)
-                                    : MyThemes.josefinSansRegular(
-                                        fontSize: 22, textColor: Colors.black)
-                                : MyThemes.josefinSansBold(fontSize: 24),
-                            textAlign: TextAlign.start,
-                          ),
-                        ),
-                        Container(
-                          margin:
-                              const EdgeInsets.symmetric(horizontal: vPadding),
-                          padding: const EdgeInsets.all(14),
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: MyThemes.superLightBlue,
-                            border: Border.all(width: 1),
-                          ),
-                          child: RichText(
-                            text: widget.boxText,
-                          ),
-                        ),
-                        widget.imgPath == 'noimage'
-                            ? Container()
-                            : Center(
-                                child: Image.asset(
-                                  widget.imgPath,
-                                  width: MediaQuery.of(context).size.width *
-                                      widget.imgScale,
+                    //CONTEÚDO DA PÁGINA
+                    widget.isExercise
+                        ? BodyExerciseScreen(sizedBoxSpace, vPadding,
+                            widget.exerciseType, widget.imgPath, height, width)
+                        : Expanded(
+                            child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: vPadding),
+                                child: Text(
+                                  widget.title,
+                                  style: widget.title.length > 25
+                                      ? widget.title.length > 50
+                                          ? MyThemes.josefinSansRegular(
+                                              fontSize: 18,
+                                              textColor: Colors.black)
+                                          : MyThemes.josefinSansRegular(
+                                              fontSize: 22,
+                                              textColor: Colors.black)
+                                      : MyThemes.josefinSansBold(fontSize: 24),
+                                  textAlign: TextAlign.start,
                                 ),
                               ),
-                      ],
-                    )),
+                              Container(
+                                margin: const EdgeInsets.symmetric(
+                                    horizontal: vPadding),
+                                padding: const EdgeInsets.all(14),
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: MyThemes.superLightBlue,
+                                  border: Border.all(width: 1),
+                                ),
+                                child: RichText(
+                                  text: widget.boxText,
+                                ),
+                              ),
+                              widget.imgPath == 'noimage'
+                                  ? Container()
+                                  : Center(
+                                      child: Image.asset(
+                                        widget.imgPath,
+                                        width: width * widget.imgScale,
+                                      ),
+                                    ),
+                            ],
+                          )),
 
-              //BOTÃO CONTINUAR
-              widget.exerciseType == '2A'
-                  ? Consumer<TimerInfo>(
-                      builder: (context, data, child) {
-                        return Padding(
-                          padding: const EdgeInsets.only(top: 15),
-                          child: ExerciseColoredButton(
-                            buttonText: data.getIsOver()
-                                ? 'CONFIRMAR'
-                                : data.getRemainingTime().toString(),
-                            onTapFunction: () {},
-                            isReady: data.getIsOver(),
-                          ),
-                        );
-                      },
-                    )
-                  : ExerciseColoredButton(
+                    //BOTÃO CONTINUAR
+                    ExerciseColoredButton(
                       buttonText: 'CONFIRMAR',
                       onTapFunction: widget.onTap,
                       isReady: widget.isExercise ? widget.isSelected : true,
                     )
-            ],
-          ),
+                  ],
+                ),
         ),
       ),
     );
   }
 
-  Widget BodyExerciseScreen(
-      double sizedBoxSpace, double vPadding, String type, String imgPath) {
+  Widget BodyExerciseScreen(double sizedBoxSpace, double vPadding, String type,
+      String imgPath, double height, double width) {
     switch (type) {
       case '4A':
         return Expanded(
@@ -335,8 +340,7 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
               ),
               Image.asset(
                 imgPath,
-                width:
-                    MediaQuery.of(context).size.width * 0.5 * widget.imgScale,
+                width: width * 0.5 * widget.imgScale,
               ),
               SizedBox(
                 height: sizedBoxSpace * 0.2,
@@ -402,17 +406,6 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
           ),
         );
       case '2A':
-        final double physicalHeight = WidgetsBinding
-            .instance.platformDispatcher.views.first.physicalSize.height;
-        final double devicePixelRatio = WidgetsBinding
-            .instance.platformDispatcher.views.first.devicePixelRatio;
-        final double height = physicalHeight / devicePixelRatio;
-
-        //Pegando a largura da mesma forma que a altura
-        final double physicalWidth = WidgetsBinding
-            .instance.platformDispatcher.views.first.physicalSize.width;
-        final double width = physicalWidth / devicePixelRatio;
-
         final FlutterConsoleController consoleController =
             FlutterConsoleController();
         consoleController.hide();
@@ -421,74 +414,76 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
         ProgrammingBlocksProjectModel? projectModel;
         projectModel = ProgrammingBlocksProjectModel.fromJson(
           jsonDecode(
-            CalculatorAlgorithm.serializedCode,
+            widget.blockString,
           ),
         );
-        return Expanded(
-          child: Column(
-            children: [
-              /*
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                //BARRA SUPERIOR
-                child: ExerciseAppBar(
-                  progress: widget.progress,
-                  total: widget.total,
-                  vidas: widget.vidas,
-                ),
-              ),*/
-              Expanded(
-                child: ProgrammingBlocks(
-                  projectModel: projectModel, //AQUI
-                  onProjectChange: (projectModel) async {
-                    await Clipboard.setData(
-                        ClipboardData(text: jsonEncode(projectModel.toJson())));
-                  },
-                  onChangeRunningState: (runningState) async {
-                    switch (runningState) {
-                      case RunningState.running:
-                        consoleController.show();
-                        break;
-                      case RunningState.stoped:
-                        consoleController.clear();
-                        consoleController.hide();
 
-                        break;
-                    }
-                  },
-                  enableFunctions: true,
-                  sections: [
+        /* convertendo um projectModel em uma String
+        print(CalculatorAlgorithm.serializedCode);
+        print('__________________________________________________________');
+        String teste = jsonEncode(projectModel.toJson());
+        print(teste);
+        */
+
+        //Reseta o timer sempre que uma nova tela do tipo Programação em blocos é chamada
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          var timerInfo = Provider.of<TimerInfo>(context, listen: false);
+          timerInfo.resetTimer();
+        });
+
+        return Column(
+          children: [
+            Expanded(
+              child: ProgrammingBlocks(
+                projectModel: projectModel, //AQUI
+                onProjectChange: (projectModel) async {
+                  await Clipboard.setData(
+                      ClipboardData(text: jsonEncode(projectModel.toJson())));
+                },
+                onChangeRunningState: (runningState) async {
+                  switch (runningState) {
+                    case RunningState.running:
+                      consoleController.show();
+                      break;
+                    case RunningState.stoped:
+                      consoleController.clear();
+                      consoleController.hide();
+                      break;
+                  }
+                },
+                enableFunctions: widget.showCategory[0],
+                sections: [
+                  if (widget.showCategory[1])
                     ConsoleSection(
                       consoleController: consoleController,
                     ),
-                    FollowSection(),
-                    LogicSection(),
-                    NumbersSection(),
-                    StringsSection(),
-                  ],
-                ),
+                  if (widget.showCategory[2]) FollowSection(),
+                  if (widget.showCategory[3]) LogicSection(),
+                  if (widget.showCategory[4]) NumbersSection(),
+                  if (widget.showCategory[5]) StringsSection(),
+                ],
               ),
-              SingleChildScrollView(
-                child: FlutterConsole(
-                  controller: consoleController,
-                  width: width,
-                  height: height / 3,
-                ),
+            ),
+            SingleChildScrollView(
+              child: FlutterConsole(
+                controller: consoleController,
+                width: width,
+                height: height / 3,
               ),
-              /*
-              Consumer<TimerInfo>(
-                builder: (context, data, child) {
-                  return ExerciseColoredButton(
-                    buttonText: data.getIsOver()
-                        ? 'CONFIRMAR'
-                        : data.getRemainingTime().toString(),
-                    onTapFunction: () {},
-                    isReady: data.getIsOver(),
-                  ); 
-                }, 
-              ) */
-            ],
-          ),
+            ),
+            Consumer<TimerInfo>(
+              builder: (context, data, child) {
+                //data.resetTimer();
+                return ExerciseColoredButton(
+                  buttonText: data.getIsOver()
+                      ? 'CONFIRMAR'
+                      : data.getRemainingTime().toString(),
+                  onTapFunction: widget.onTap,
+                  isReady: data.getIsOver(),
+                );
+              },
+            )
+          ],
         );
       default:
         return Container();

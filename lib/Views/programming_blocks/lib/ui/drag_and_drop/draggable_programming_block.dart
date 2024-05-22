@@ -140,7 +140,7 @@ class _BodyDraggableProgrammingBlock extends StatelessWidget {
                       programmingBlocks.panelController.draggingBlock();
                       programmingBlocks.canvasController.blocksBuffer =
                           Completer<ProgrammingBlockModel>();
-                      programmingBlocks.paySound('disconnect.mp3');
+                      //programmingBlocks.paySound('disconnect.mp3');
                     },
                   );
                 });
