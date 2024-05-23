@@ -1970,17 +1970,155 @@ class ExerciseController {
               text:
                   'Agora vamos começar a falar sobre os diferentes blocos/peças que você pode utilizar, sendo o primeiro deles o bloco ',
               style: MyThemes.josefinSansRegular(
-                  fontSize: 18, textColor: Colors.black),
+                  fontSize: 16, textColor: Colors.black),
               children: <TextSpan>[
                 TextSpan(
                     text: 'Escreva',
                     style: MyThemes.josefinSansBold(
-                        fontSize: 18, textColor: MyThemes.lightBlue)),
+                        fontSize: 16, textColor: MyThemes.lightBlue)),
+                TextSpan(
+                    text: '.\nEsse bloco pode ser acessado no menu ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: 'Console',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: Color.fromARGB(255, 175, 47, 111))),
                 TextSpan(
                     text:
-                        '.\nEsse bloco pode ser acessado no menu Console, que será o menu que conterá os blocos de entradas e saídas de valores, sendo o Escreva o bloco de saída\n Existem dois tipos de escreva, um para números e outro para Strings, além disso cada bloco possui uma caixa depois do valor escrita Pular Linha, ao marcar essa caixa será pulada uma linha depois do conteúdo ser escrito na tela.',
+                        ' que será o menu que conterá os blocos de entradas e saídas de valores, sendo o Escreva o bloco de saída\nExistem dois tipos de escreva, um para números e outro para Strings, além disso cada bloco possui uma caixa depois do valor escrita Pular Linha, ao marcar essa caixa será pulada uma linha depois do conteúdo ser escrito na tela.',
                     style: MyThemes.josefinSansRegular(
-                        fontSize: 18, textColor: Colors.black)),
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+            text:
+                'Pressione o botão de play e você verá que será escrito na tela justamento o que está no espaço em branco da peça Escreva, aproveite e tentei mudar o conteúdo que está escrito, para fazer isso basta pressionar no local que o texto está!',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'Olá Mundo',
+          total: 9,
+          isExercise: true,
+          exerciseType: '2A',
+          showCategory: [false, true, false, false, false, false],
+          blockString: CalculatorAlgorithm.olaMundo,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Menu Variáveis',
+          imgPath: 'assets/images/blocovar.png',
+          boxText: TextSpan(
+              text:
+                  'Agora vamos ver o menu variáveis, nele você poderá criar variáveis, atribuir valores para variáveis, e realizar operações matemáticas entre as variáveis ou valores que você quiser.\n\nPara criar uma variável é preciso pressionar o botão no canto superior esquerdo do menu escrito ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 16, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: '"Adicionar Variável"',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: const Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        ', lá você poderá definir o nome da variável e um valor inicial para ela. ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text:
+                        'Apesar dessa valor inicial ser inteiro, essa variável pode receber outro valores',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16,
+                        textColor: const Color.fromARGB(255, 39, 39, 39))),
+              ]),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          imgScale: 0.9,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Menu Variáveis',
+          imgPath: 'assets/images/blocovar1.png',
+          boxText: TextSpan(
+              text:
+                  'Como é possível notar pela imagem a baixo no canto Inferior esquerdo, o menu ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 16, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Variáveis',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: const Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text: ' é dividido em duas partes,  ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: 'instâncias e Métodos.\n',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        'Onde nas instâncias é possível criar as variáveis e selecionar o bloco de atribuição, e na parte de Métodos é possível acessar o bloco de realizar operações (+, -, /, *) e um bloco que gera um número aleatório.',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          imgScale: 0.9,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+              text: 'Os blocos a seguir irão fazer a soma de duas variáveis ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 16, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'numero1',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: const Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text: ' e ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: 'numero2.',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        ' Onde nelas estão guardadas o número 1 e 2 respectivamente, sinta-se avontade para alterar o valor das variáveis ou a operação, isso pode ser feito clicando nas variáveis ou no símbolo de + dentro do bloco',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
               ]),
           total: 9,
           isExercise: false,
@@ -1994,17 +2132,31 @@ class ExerciseController {
             style: MyThemes.josefinSansRegular(
                 fontSize: 16, textColor: Colors.black),
           ),
-          title: 'Se (if) e Senão (else)',
+          title: 'Soma',
           total: 9,
           isExercise: true,
           exerciseType: '2A',
-          showCategory: [false, true, false, false, false, false],
-          blockString: CalculatorAlgorithm.olaMundo,
+          showCategory: [false, true, false, false, true, false],
+          blockString: CalculatorAlgorithm.variaveis,
           selectedIndex: [false, false, false, false],
         ),
       ],
       [],
       [
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'Se (if) e Senão (else)',
+          total: 9,
+          isExercise: true,
+          exerciseType: '2A',
+          blockString: CalculatorAlgorithm.vazio,
+          selectedIndex: [false, false, false, false],
+        ),
         ExerciseScreenInfo(
           imgPath: '',
           boxText: TextSpan(

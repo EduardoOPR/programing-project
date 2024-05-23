@@ -9,6 +9,7 @@ class ExerciseColoredButton extends StatelessWidget {
     required this.isReady,
     this.isRight = true,
     this.isSnack = false,
+    this.dontHasBlur = true,
   });
 
   final String buttonText;
@@ -16,6 +17,7 @@ class ExerciseColoredButton extends StatelessWidget {
   final bool isReady;
   bool isRight;
   bool isSnack;
+  bool dontHasBlur;
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +39,11 @@ class ExerciseColoredButton extends StatelessWidget {
                     : MyThemes.lightBlue
                 : const Color(0xFFD9D9D9),
             borderRadius: BorderRadius.circular(15),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
-                color: Color.fromARGB(255, 172, 172, 172),
-                blurRadius: 3,
-                offset: Offset(0, 4), // changes position of shadow
+                color: const Color.fromARGB(255, 172, 172, 172),
+                blurRadius: dontHasBlur ? 0 : 3,
+                offset: const Offset(0, 4), // changes position of shadow
               ),
             ],
           ),

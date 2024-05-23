@@ -114,8 +114,11 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
 
     return Scaffold(
       //resizeToAvoidBottomInset: false,
-      backgroundColor:
-          widget.isExercise ? Colors.white : MyThemes.infoLightBlue,
+      backgroundColor: widget.isExercise
+          ? Colors.white
+          : widget.title == "Hora de praticar!"
+              ? Colors.black
+              : MyThemes.infoLightBlue,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 20, bottom: 30),
@@ -181,11 +184,22 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
                                       ? widget.title.length > 50
                                           ? MyThemes.josefinSansRegular(
                                               fontSize: 18,
-                                              textColor: Colors.black)
+                                              textColor: widget.title ==
+                                                      "Hora de praticar!"
+                                                  ? Colors.white
+                                                  : Colors.black)
                                           : MyThemes.josefinSansRegular(
                                               fontSize: 22,
-                                              textColor: Colors.black)
-                                      : MyThemes.josefinSansBold(fontSize: 24),
+                                              textColor: widget.title ==
+                                                      "Hora de praticar!"
+                                                  ? Colors.white
+                                                  : Colors.black)
+                                      : MyThemes.josefinSansBold(
+                                          fontSize: 24,
+                                          textColor: widget.title ==
+                                                  "Hora de praticar!"
+                                              ? Colors.white
+                                              : Colors.black),
                                   textAlign: TextAlign.start,
                                 ),
                               ),
@@ -218,6 +232,7 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
                       buttonText: 'CONFIRMAR',
                       onTapFunction: widget.onTap,
                       isReady: widget.isExercise ? widget.isSelected : true,
+                      dontHasBlur: widget.title == "Hora de praticar!",
                     )
                   ],
                 ),
@@ -470,6 +485,9 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
                 width: width,
                 height: height / 3,
               ),
+            ),
+            SizedBox(
+              height: 5,
             ),
             Consumer<TimerInfo>(
               builder: (context, data, child) {

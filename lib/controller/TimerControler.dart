@@ -8,7 +8,7 @@ class TimerInfo extends ChangeNotifier {
   bool getIsOver() => _isOver;
 
   resetTimer() {
-    _remainingTime = 30;
+    _remainingTime = 3;
     notifyListeners();
   }
 
