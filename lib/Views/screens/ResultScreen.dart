@@ -58,13 +58,13 @@ class ResultScreen extends StatelessWidget {
                   ResultContainer(
                     resultTypeText: 'MOEDAS',
                     result: moedas,
-                    containerColor: Color.fromARGB(255, 212, 181, 57),
+                    containerColor: const Color.fromARGB(255, 212, 181, 57),
                     isPercentage: false,
                   ),
                   ResultContainer(
                     resultTypeText: 'ACERTOS',
                     result: pAcerto.toInt(),
-                    containerColor: Color(0xFF71B23E),
+                    containerColor: const Color(0xFF71B23E),
                     isPercentage: true,
                   ),
                   const SizedBox(

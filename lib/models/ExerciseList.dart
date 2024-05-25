@@ -12,6 +12,10 @@ import 'package:progaming/themes/MyThemes.dart';
   2-1: estruturas condicionas: if e else e condições (>, <, >=, <=, ==)
   2-2: estruturas de repetição : while
   2-3: estruturas de repetição: do while e for
+
+  3-1: menu de I/O do console e menu de variáveis
+  3-2: menu string e condicional
+  3-3: menu de Repetição
 */
 class ExerciseController {
   List<List<List<ExerciseScreenInfo>>> listExercise = [
@@ -532,7 +536,7 @@ class ExerciseController {
           boxText: TextSpan(
             text: 'O que são variáveis na programação?',
             style: MyThemes.josefinSansRegular(
-                fontSize: 21, textColor: Colors.black),
+                fontSize: 18, textColor: Colors.black),
           ),
           title: 'Marque a alternativa CORRETA',
           total: 9,
@@ -1945,6 +1949,7 @@ class ExerciseController {
               ]),
           total: 9,
           isExercise: false,
+          answer: 0,
           exerciseType: '2A',
           imgScale: 0.5,
           selectedIndex: [false, false, false, false],
@@ -2020,22 +2025,23 @@ class ExerciseController {
           title: 'Olá Mundo',
           total: 9,
           isExercise: true,
+          answer: 0,
           exerciseType: '2A',
           showCategory: [false, true, false, false, false, false],
           blockString: CalculatorAlgorithm.olaMundo,
           selectedIndex: [false, false, false, false],
         ),
         ExerciseScreenInfo(
-          title: 'Menu Variáveis',
+          title: 'Menu Números',
           imgPath: 'assets/images/blocovar.png',
           boxText: TextSpan(
               text:
-                  'Agora vamos ver o menu variáveis, nele você poderá criar variáveis, atribuir valores para variáveis, e realizar operações matemáticas entre as variáveis ou valores que você quiser.\n\nPara criar uma variável é preciso pressionar o botão no canto superior esquerdo do menu escrito ',
+                  'Agora vamos ver o menu números, nele você poderá criar variáveis numéricas, atribuir valores para variáveis, e realizar operações matemáticas entre as variáveis ou valores que você quiser.\n\nPara criar uma variável é preciso pressionar o botão no canto superior esquerdo do menu escrito ',
               style: MyThemes.josefinSansRegular(
                   fontSize: 16, textColor: Colors.black),
               children: <TextSpan>[
                 TextSpan(
-                    text: '"Adicionar Variável"',
+                    text: '"Adicionar Número"',
                     style: MyThemes.josefinSansBold(
                         fontSize: 16,
                         textColor: const Color.fromARGB(255, 175, 47, 111))),
@@ -2044,30 +2050,24 @@ class ExerciseController {
                         ', lá você poderá definir o nome da variável e um valor inicial para ela. ',
                     style: MyThemes.josefinSansRegular(
                         fontSize: 16, textColor: Colors.black)),
-                TextSpan(
-                    text:
-                        'Apesar dessa valor inicial ser inteiro, essa variável pode receber outro valores',
-                    style: MyThemes.josefinSansRegular(
-                        fontSize: 16,
-                        textColor: const Color.fromARGB(255, 39, 39, 39))),
               ]),
           total: 9,
           isExercise: false,
-          exerciseType: '',
+          exerciseType: '2A',
           imgScale: 0.9,
           selectedIndex: [false, false, false, false],
         ),
         ExerciseScreenInfo(
-          title: 'Menu Variáveis',
+          title: 'Menu Números',
           imgPath: 'assets/images/blocovar1.png',
           boxText: TextSpan(
               text:
-                  'Como é possível notar pela imagem a baixo no canto Inferior esquerdo, o menu ',
+                  'Como é possível notar pela imagem abaixo no canto Inferior esquerdo, o menu ',
               style: MyThemes.josefinSansRegular(
                   fontSize: 16, textColor: Colors.black),
               children: <TextSpan>[
                 TextSpan(
-                    text: 'Variáveis',
+                    text: 'Números',
                     style: MyThemes.josefinSansBold(
                         fontSize: 16,
                         textColor: const Color.fromARGB(255, 175, 47, 111))),
@@ -2090,6 +2090,48 @@ class ExerciseController {
           isExercise: false,
           imgScale: 0.9,
           exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'O que são variáveis na programação?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 18, textColor: Colors.black),
+          ),
+          title: 'Marque a alternativa CORRETA',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'São objetos que você pode carregar na mochila.',
+            'São partes de um código secreto que o computador usa para funcionar.',
+            'São como páginas de um livro que o programa lê para saber o que fazer.',
+            'São caixas de memória usadas para armazenar e manipular informações.'
+          ],
+          answer: 3,
+          isReview: true,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'O que é uma String em programação?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Quanto ao tipo String',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'Um tipo de brinquedo',
+            'Uma sequência de caracteres, como letras e números',
+            'Um tipo de variável que só pode armazenar números inteiros',
+            'Um tipo de animal',
+          ],
+          answer: 1,
+          isReview: true,
           selectedIndex: [false, false, false, false],
         ),
         ExerciseScreenInfo(
@@ -2134,27 +2176,74 @@ class ExerciseController {
           ),
           title: 'Soma',
           total: 9,
+          answer: 0,
           isExercise: true,
           exerciseType: '2A',
           showCategory: [false, true, false, false, true, false],
           blockString: CalculatorAlgorithm.variaveis,
           selectedIndex: [false, false, false, false],
         ),
-      ],
-      [],
-      [
         ExerciseScreenInfo(
-          imgPath: '',
+          title: 'Ler um valor digitado!',
+          imgPath: 'noimage',
           boxText: TextSpan(
-            text: '',
-            style: MyThemes.josefinSansRegular(
-                fontSize: 16, textColor: Colors.black),
-          ),
-          title: 'Se (if) e Senão (else)',
+              text:
+                  'Agora que vimos sobre esses dois menus podemos utilizar mais uma função muito útil que é ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 18, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Ler um valor digitado e salvar em uma variável ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18,
+                        textColor: const Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        'Para isso precisamos primeiramente criar uma variável, depois podemos utilizar o bloco ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+                TextSpan(
+                    text: '"Defina Como" ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18,
+                        textColor: Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        'Que serve justamente para atribuir um valor para uma variável, por fim no menu Console acessamos o submenu ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+                TextSpan(
+                    text: '"Entradas" ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18,
+                        textColor: Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text: 'E colocamos o bloco ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+                TextSpan(
+                    text: '"Próximo número" ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18,
+                        textColor: Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text: 'dentro do ',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+                TextSpan(
+                    text: '"Defina Como" ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 18,
+                        textColor: Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        'e pronto.\nPara melhor entendimento o do que foi dito pode ser visto na tela asseguir',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 18, textColor: Colors.black)),
+              ]),
           total: 9,
-          isExercise: true,
+          isExercise: false,
           exerciseType: '2A',
-          blockString: CalculatorAlgorithm.vazio,
           selectedIndex: [false, false, false, false],
         ),
         ExerciseScreenInfo(
@@ -2164,11 +2253,533 @@ class ExerciseController {
             style: MyThemes.josefinSansRegular(
                 fontSize: 16, textColor: Colors.black),
           ),
-          title: 'Se (if) e Senão (else)',
+          title: 'Soma',
           total: 9,
           isExercise: true,
           exerciseType: '2A',
-          blockString: CalculatorAlgorithm.serializedCode,
+          answer: 0,
+          showCategory: [false, true, false, false, true, false],
+          blockString: CalculatorAlgorithm.lerValor,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+            text:
+                'Agora com o que já vimos fique a vontade e tente criar o que quiser. Caso queira uma sugestão, tente criar um código que leia dois valores digitados e no fim retorne a soma dos dois valores',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'Soma',
+          total: 9,
+          answer: 0,
+          isExercise: true,
+          exerciseType: '2A',
+          showCategory: [false, true, false, false, true, false],
+          blockString: CalculatorAlgorithm.vazio,
+          selectedIndex: [false, false, false, false],
+        ),
+      ],
+      [
+        ExerciseScreenInfo(
+          title: 'Menu Strings',
+          imgPath: 'assets/images/menustring.png',
+          boxText: TextSpan(
+              text:
+                  'O menu Strings funciona de forma similiar ao menu Números, porém como o nome já nos indica, o menu String serve para criar variáveis do tipo String e fazer operações com elas.\nO menu String também é dividido em duas partes ',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 16, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Instâncias e Métodos ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: const Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        'onde nas Instâncias você pode: Criar variáveis, atribuir valor para as variáveis ou juntar duas variáveis.\nJá no métodos você pode fazer operações com as variáveis, como comparar duas variáveis, converter o tipo, converter para letras minúsculas ou maiusculas ou até mesmo saber o tamanho de uma String.',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          answer: 0,
+          exerciseType: '2A',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/macas.png',
+          imgScale: 1.2,
+          boxText: TextSpan(
+              text:
+                  "Se a quantidade de maçãs for 4, quantas maçãs serão comidas?",
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 20, textColor: Colors.black)),
+          title: 'Considerando o algoritmo abaixo responda:',
+          total: 9,
+          isExercise: true,
+          exerciseType: "3A",
+          option: const [
+            'Duas maçãs',
+            'Nenhuma maçã',
+            'Quatro maçãs',
+          ],
+          isReview: true,
+          answer: 1,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'O que o símbolo ">" significa em programação?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 19, textColor: Colors.black),
+          ),
+          title: 'Qual das altenativas está CORRETA',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const ['Menor que', 'Maior que', 'igual', 'Diferente de'],
+          answer: 1,
+          isReview: true,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+            text:
+                'Agora você verá um exemplo que lê uma String digitada e retorna o tamanho dela, fique a vontade para testar outros blocos dos submenus métodos e instâncias',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'Tamanho String',
+          total: 9,
+          isExercise: true,
+          answer: 0,
+          exerciseType: '2A',
+          showCategory: [false, true, false, false, false, true],
+          blockString: CalculatorAlgorithm.tamanhoString,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Menu Condicional',
+          imgPath: 'assets/images/menucondicional.png',
+          boxText: TextSpan(
+              text:
+                  'O menu Condicional inclui tanto as condicionais que estudamos como também as condições que são usadas dentro das condicionais. Nesse menu temos acesso a 4 blocos, sendo eles:\n',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 16, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Bloco "Se": ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: const Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        'Checa uma condição, se for verdadeira permite executar bocos que estão dentro do Se\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: 'Bloco "Não": ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: const Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        'Esse bloco pode ser colocado dentro do bloco Se, negando a condição, ou seja, será executado quando a condição for falsa, funcionando como o "Senão"\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: 'Blocos de comparação: ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: const Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        'Terá um bloco para as comparações de valores numéricos (>, < ...), como também comparações de valores lógicos ("e" e "ou")',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          exerciseType: '2A',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text:
+                'Para a condição a seguir, qual valor o computador irá retornar:\n\n"Carro" == "Canoa"',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 19, textColor: Colors.black),
+          ),
+          title: 'Quanto as condições',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const ['Canoa', 'Carro', 'Falso', 'Verdadeiro'],
+          answer: 2,
+          isReview: true,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text:
+                'O que o computador irá retornar para a condição a seguir:\n\n 10 > 8',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 19, textColor: Colors.black),
+          ),
+          title: 'Qual das altenativas está CORRETA',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const ['10', 'Verdadeiro', 'Falso', '8'],
+          answer: 1,
+          isReview: true,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+            text:
+                'Agora vamos para um exemplo mais complexo, o exemplo a seguir pega dois números digitados pelo o usuário e ao final diz se o primeiro ou se o segundo número é o maior, sinta-se avontade para alterar o valor das variáveis dos blocos, bastando pressionar em cima delas para fazer isso!',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'Comparando duas variáveis',
+          total: 9,
+          isExercise: true,
+          answer: 0,
+          exerciseType: '2A',
+          showCategory: [false, true, false, true, true, true],
+          blockString: CalculatorAlgorithm.ifelse,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+            text:
+                'Agora que você já viu quase todos os blocos de programação está na hora de praticar e entender como eles funcionam, tente criar um programa que leia um valor, se o valor for maior que 5 escreva algo na tela, se não, escreva uma outra mensagem na tela. Se quiser criar outro código fique a vontade!',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'Soma',
+          total: 9,
+          isExercise: true,
+          answer: 0,
+          exerciseType: '2A',
+          showCategory: [false, true, false, false, true, false],
+          blockString: CalculatorAlgorithm.vazio,
+          selectedIndex: [false, false, false, false],
+        ),
+      ],
+      [
+        ExerciseScreenInfo(
+          title: 'Menu Repetição',
+          imgPath: 'assets/images/menurepeticao.png',
+          boxText: TextSpan(
+              text:
+                  'O menu Repetição possui os blocos referentes as estruturas de repetição, especialmente dois blocos, sendo eles:\n',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 16, textColor: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                    text: 'Enquanto: ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: const Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        'O bloco Enquanto é alto explicativo, ele funciona como o "Enquanto" já ensinado, onde ele repetirá os blocos dentro dele enquanto a sua condição for verdadeira.\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+                TextSpan(
+                    text: 'Repita: ',
+                    style: MyThemes.josefinSansBold(
+                        fontSize: 16,
+                        textColor: const Color.fromARGB(255, 175, 47, 111))),
+                TextSpan(
+                    text:
+                        'O bloco repita funciona com um "Para", onde nele basta você fornecer um número ao bloco, onde ele irá repetir a execução dos blocos dentro dele igual ao número fornecido.\n',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          answer: 0,
+          exerciseType: '2A',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'Quando um loop Enquanto (while) termina sua execução?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Marque a alternativa CORRETA',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'Quando uma condição específica se torna falsa',
+            'Quando todas as ações dentro do loop foram executadas',
+            'Após um número fixo de repetições',
+            'Quando o programa encontra um erro',
+          ],
+          answer: 0,
+          isReview: true,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: 'Qual exemplo representa melhor o uso do Loop "Enquanto"?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 21, textColor: Colors.black),
+          ),
+          title: 'Marque a alternativa CORRETA',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'Andar ao redor de uma pista exatamente 5 vezes',
+            'Contar números de 1 a 10',
+            'Continuar desenhando até que a tinta acabe',
+            'Enviar uma mensagem para cada amigo em uma lista',
+          ],
+          isReview: true,
+          answer: 2,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+            text:
+                'Vamos começar com um exemplo do bloco Enquanto, os blocos a seguir repetem um Loop enquanto o número digitado for diferente de zero, quando o número digitado for zero, o Loop acaba, fique a vontade para alterar as condições de parada do Loop!',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'While',
+          total: 9,
+          isExercise: true,
+          answer: 0,
+          exerciseType: '2A',
+          showCategory: [false, true, true, true, true, true],
+          blockString: CalculatorAlgorithm.repeticoes,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text:
+                'Qual dos seguintes loops é mais apropriado para executar um bloco de código um número específico de vezes conhecido antes da execução?',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 18, textColor: Colors.black),
+          ),
+          title: 'Marque a alternativa CORRETA',
+          total: 9,
+          isExercise: true,
+          exerciseType: "4A",
+          option: const [
+            'Nenhuma das alternativas',
+            'Enquanto (while)',
+            'Faça Equanto (do while)',
+            'Para (for)',
+          ],
+          answer: 3,
+          isReview: true,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: 'assets/images/for1.png',
+          boxText: TextSpan(
+              text:
+                  'Qual será o valor final da variável soma, dado que seu valor inicial é 0?',
+              style: MyThemes.josefinSansRegular(
+                  fontSize: 20, textColor: Colors.black)),
+          title: 'Em relação ao código a seguir:',
+          total: 9,
+          isExercise: true,
+          exerciseType: "3A",
+          option: const [
+            '5',
+            '0',
+            '4',
+            '6',
+          ],
+          answer: 0,
+          isReview: true,
+          imgScale: 1.8,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+            text:
+                'Agora vamos ver o bloco Repita, os blocos a seguir primeiro solicitam que um número seja digitado, e ele irá fazer a contagem de 1 até o valor digitado e escrever na tela, simples não? \nExecute o código e tente entender como o bloco Repita funciona!',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'For',
+          total: 9,
+          isExercise: true,
+          answer: 0,
+          exerciseType: '2A',
+          showCategory: [false, true, true, true, true, true],
+          blockString: CalculatorAlgorithm.para,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+              text: 'Primeiro Desafio!',
+              style: MyThemes.josefinSansBold(
+                  fontSize: 20,
+                  textColor: const Color.fromARGB(255, 196, 7, 7)),
+              children: <TextSpan>[
+                TextSpan(
+                    text:
+                        '\nCrie um programa que solicite números para o usuário, e que quando o usuário digitar o valor "0" o programa para, e ao final do Loop retorne a soma de todos os valores digitados',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'For',
+          total: 9,
+          isExercise: true,
+          answer: 0,
+          exerciseType: '2A',
+          showCategory: [false, true, true, true, true, true],
+          blockString: CalculatorAlgorithm.vazio,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+              text: 'Segundo Desafio!',
+              style: MyThemes.josefinSansBold(
+                  fontSize: 20,
+                  textColor: const Color.fromARGB(255, 196, 7, 7)),
+              children: <TextSpan>[
+                TextSpan(
+                    text:
+                        '\nEscreva um programa que solicite um número ao usuário e que retorne o valor de 2 elevado a esse número, ou seja, se o número digitado for 2, ele fará a conta 2² = 2 x 2, retornando 4 no final, faça isso usando o bloco Repita!',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'For',
+          total: 9,
+          isExercise: true,
+          answer: 0,
+          exerciseType: '2A',
+          showCategory: [false, true, true, true, true, true],
+          blockString: CalculatorAlgorithm.vazio,
           selectedIndex: [false, false, false, false],
         ),
       ]

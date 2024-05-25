@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:progaming/Views/widgets/AchievementContainer.dart';
-import 'package:progaming/controller/FirebaseService.dart';
 import 'package:progaming/controller/FunctionsController.dart';
 import 'package:progaming/models/UserModel.dart';
 import 'package:progaming/themes/MyThemes.dart';
@@ -16,7 +14,7 @@ class AchievementsScreen extends StatefulWidget {
 }
 
 class _AchievementsScreenState extends State<AchievementsScreen> {
-  final FirebaseService _firebaseService = FirebaseService();
+  //final FirebaseService _firebaseService = FirebaseService();
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FunctionController _functionController = FunctionController();
 

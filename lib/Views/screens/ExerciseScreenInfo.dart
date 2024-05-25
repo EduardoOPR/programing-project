@@ -2,20 +2,15 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:progaming/Views/widgets/flutter_console_widget/flutter_console.dart';
-import 'package:progaming/Views/widgets/flutter_console_widget/flutter_console_controller.dart';
 import 'package:progaming/Views/programming_blocks/lib/example_sections/console/console_section.dart';
 import 'package:progaming/Views/programming_blocks/lib/example_sections/string/strings_section.dart';
-import 'package:progaming/Views/programming_blocks/lib/models/programming_blocks_project_model.dart';
 import 'package:progaming/Views/programming_blocks/lib/programming_blocks.dart';
-import 'package:progaming/Views/screens/ProgrammingBlocksView.dart';
 import 'package:progaming/Views/widgets/ExerciseAppBar.dart';
 import 'package:progaming/Views/widgets/ExerciseColoredButton.dart';
 import 'package:progaming/Views/widgets/OptionButton.dart';
 import 'package:progaming/controller/TimerControler.dart';
-import 'package:progaming/example_algorithms/calculator_algorithm.dart';
 import 'package:progaming/models/ExerciseList.dart';
 import 'package:progaming/themes/MyThemes.dart';
 import 'package:provider/provider.dart';
@@ -123,7 +118,7 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
         child: Padding(
           padding: const EdgeInsets.only(top: 20, bottom: 30),
           child: widget.exerciseType == '2A' && widget.isExercise
-              ? BodyExerciseScreen(sizedBoxSpace, vPadding, widget.exerciseType,
+              ? bodyExerciseScreen(sizedBoxSpace, vPadding, widget.exerciseType,
                   widget.imgPath, height, width)
               : Column(
                   children: [
@@ -168,7 +163,7 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
 
                     //CONTEÚDO DA PÁGINA
                     widget.isExercise
-                        ? BodyExerciseScreen(sizedBoxSpace, vPadding,
+                        ? bodyExerciseScreen(sizedBoxSpace, vPadding,
                             widget.exerciseType, widget.imgPath, height, width)
                         : Expanded(
                             child: Column(
@@ -241,7 +236,7 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
     );
   }
 
-  Widget BodyExerciseScreen(double sizedBoxSpace, double vPadding, String type,
+  Widget bodyExerciseScreen(double sizedBoxSpace, double vPadding, String type,
       String imgPath, double height, double width) {
     switch (type) {
       case '4A':
@@ -250,14 +245,18 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(
-                height: sizedBoxSpace,
+                height: sizedBoxSpace * 0.5,
               ),
               Padding(
                 padding:
                     EdgeInsets.symmetric(horizontal: vPadding, vertical: 10),
-                child: Text(
-                  widget.title,
-                  style: MyThemes.josefinSansBold(fontSize: 24),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    widget.title,
+                    style: MyThemes.josefinSansBold(fontSize: 24),
+                    textAlign: TextAlign.start,
+                  ),
                 ),
               ),
               Stack(

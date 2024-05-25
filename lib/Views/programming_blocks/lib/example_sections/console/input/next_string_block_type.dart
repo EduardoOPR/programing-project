@@ -46,7 +46,9 @@ class NextStringBlockType extends BlockType {
   @override
   Future readData(ReadBlockController? readBlockController) async {
     consoleController.focusNode.requestFocus();
-    final value = await consoleController.scan();
+    final value = await consoleController.scan(
+      keyboardType: TextInputType.text,
+    );
     consoleController.print(
       message: value,
       endline: true,

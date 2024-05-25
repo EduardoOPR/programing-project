@@ -8,22 +8,25 @@ class ShopContainer extends StatelessWidget {
     required this.title,
     required this.containerText,
     required this.value,
+    required this.ontap,
   });
 
   final String iconPath;
   final String title;
   final String containerText;
   final int value;
+  final Function()? ontap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: ontap,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.84,
         height: MediaQuery.of(context).size.height * 0.168,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
+          border: Border.all(width: 3, color: const Color(0xFF989898)),
           color: Colors.white,
         ),
         child: Row(

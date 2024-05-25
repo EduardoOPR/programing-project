@@ -11,7 +11,7 @@ class NumbersSection extends _NumbersSection {
   }) : super(
           key: key,
           sectionData: CreationSectionData(
-            name: 'Variáveis',
+            name: 'Números',
             color: color ?? Colors.redAccent,
           ),
         );

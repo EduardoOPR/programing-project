@@ -50,14 +50,14 @@ class CatStringBlockType extends BlockType {
         mainAxisSize: MainAxisSize.min,
         children: const [
           Text(
-            'Cat',
+            'Juntar',
           ),
           VariableSelector(
             textColor: Colors.white,
             variableType: 'STRING',
           ),
           Text(
-            'To',
+            'Com',
           ),
           StringInputTarget(
             blockInputTargetKey: 'VALUE',

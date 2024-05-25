@@ -18,9 +18,9 @@ class LogicOperationSelector extends DataSelector {
   @override
   String dataName(data) {
     if (data == LogicOperation.and.toString()) {
-      return ' & ';
+      return ' e ';
     } else if (data == LogicOperation.or.toString()) {
-      return ' || ';
+      return ' ou ';
     }
     return '';
   }

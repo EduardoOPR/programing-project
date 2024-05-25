@@ -49,7 +49,6 @@ class _ExerciseScreenState extends State<ExerciseScreen>
     if (pageIndex == 0) {
       lengthList = exercisesList.length;
     }
-    //print(lengthList);
     for (int i = 0; i < exercisesList.length; i++) {
       exercisesList[i].vidas = user.vidas;
       exercisesList[i].total = exercisesList.length;
@@ -57,6 +56,10 @@ class _ExerciseScreenState extends State<ExerciseScreen>
       exercisesList[i].onTap = () {
         //Se não for tela de exercicio
         if (!exercisesList[i].isExercise) {
+          if (exercisesList[i + 1].exerciseType == '2A') {
+            var timerInfo = Provider.of<TimerInfo>(context, listen: false);
+            timerInfo.resetTimer();
+          }
           setState(() {
             if (pageIndex < exercisesList[pageIndex].total - 1) {
               pageIndex++;
@@ -66,13 +69,11 @@ class _ExerciseScreenState extends State<ExerciseScreen>
             exercisesList[pageIndex].progress = pageIndex;
           });
 
-          //Respota selecionada está correta
-        } else if (exercisesList[i].answer ==
-            _exerciseController.getSelectQuestion()) {
+          //A pergunta é do tipo programação em blocos
+        } else if (exercisesList[i].exerciseType == '2A') {
           final snackBar = exerciseSnackBar(i, true, () {
             if (pageIndex < exercisesList[pageIndex].total - 1) {
               pageIndex++;
-              //print(pageIndex);
             } else {
               auxIndex = pageIndex - 1;
             }
@@ -92,7 +93,33 @@ class _ExerciseScreenState extends State<ExerciseScreen>
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(snackBar);
-          //Respota selecionada está errada
+
+          //Resposta selecionada está correta
+        } else if (exercisesList[i].answer ==
+            _exerciseController.getSelectQuestion()) {
+          final snackBar = exerciseSnackBar(i, true, () {
+            if (pageIndex < exercisesList[pageIndex].total - 1) {
+              pageIndex++;
+            } else {
+              auxIndex = pageIndex - 1;
+            }
+            acertos++;
+            exercisesList[pageIndex].progress = pageIndex;
+            if (erros > 0 && pageIndex == lengthList && aux == 0) {
+              aux++;
+              lengthList++;
+              final snackBar = errorPageSnackBar();
+
+              ScaffoldMessenger.of(context)
+                ..hideCurrentSnackBar()
+                ..showSnackBar(snackBar);
+            }
+          });
+
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(snackBar);
+          //Resposta selecionada está errada
         } else {
           final snackBar = exerciseSnackBar(i, false, () {
             user.vidas--;
@@ -146,7 +173,7 @@ class _ExerciseScreenState extends State<ExerciseScreen>
                 Text(
                   'Hora de corrigir os erros',
                   style: MyThemes.josefinSansBold(
-                      fontSize: 32, textColor: MyThemes.lightPurple),
+                      fontSize: 32, textColor: MyThemes.lightBlue),
                 ),
                 Image.asset(
                   'assets/images/error.png',
@@ -215,7 +242,7 @@ class _ExerciseScreenState extends State<ExerciseScreen>
                   alignment: Alignment.centerLeft,
                   child: Text(
                       isRight
-                          ? 'Parabéns, você escolheu a alternativa correta!'
+                          ? 'Parabéns, você acertou!'
                           : '${(exercisesList[i].answer + 1)}) ${exercisesList[i].option[exercisesList[i].answer]}',
                       style: MyThemes.josefinSansRegular(
                           fontSize: 16,
@@ -271,8 +298,16 @@ class _ExerciseScreenState extends State<ExerciseScreen>
           : pAcerto > 50
               ? 80
               : 50;
+
+      if (user.hasBuff == true) {
+        if (pAcerto == 100) {
+          moedas = moedas * 2;
+        }
+        user.hasBuff = false;
+      }
       user.moedaAtual += moedas;
       user.moedaTotal += moedas;
+
       if (user.progresso[0][auxL] <= ID) {
         user.progresso[0][auxL]++;
       }

@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:progaming/controller/FirebaseService.dart';
+import 'package:progaming/models/UserModel.dart';
 import 'package:progaming/themes/MyThemes.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -23,8 +24,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 2), () async {
       if (_firebaseAuth.currentUser != null) {
         //Usuário logado
-        Map<String, dynamic> user = await _firebaseService.getUser(
+        Map<String, dynamic> userData = await _firebaseService.getUser(
             userId: _firebaseAuth.currentUser!.uid);
+        final UserModel user = UserModel.parse(userData);
+
         Navigator.pushNamedAndRemoveUntil(
             context, '/main-page-screen', (route) => false,
             arguments: user);

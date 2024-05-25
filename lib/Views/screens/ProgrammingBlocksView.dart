@@ -4,8 +4,6 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:progaming/Views/widgets/ExerciseAppBar.dart';
-import 'package:progaming/Views/widgets/ExerciseColoredButton.dart';
 import 'package:progaming/controller/TimerControler.dart';
 import 'package:progaming/example_algorithms/calculator_algorithm.dart';
 import 'package:progaming/Views/programming_blocks/lib/programming_blocks.dart';

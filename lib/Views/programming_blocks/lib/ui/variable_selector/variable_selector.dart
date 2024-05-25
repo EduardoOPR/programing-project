@@ -100,8 +100,8 @@ class VariableSelector extends StatelessWidget {
                                         ?.blockName ??
                                     '',
                                 style: TextStyle(
-                                  color: textColor,
-                                ),
+                                    color: textColor,
+                                    overflow: TextOverflow.clip),
                               ),
                               value: e))
                           .toList(),

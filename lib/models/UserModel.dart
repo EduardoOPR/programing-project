@@ -8,6 +8,8 @@ class UserModel {
   int conquistas;
   int vidas;
   List<Map<String, dynamic>> progresso;
+  bool hasBuff;
+  bool hasShield;
 
   UserModel({
     this.id = '',
@@ -19,6 +21,8 @@ class UserModel {
     required this.moedaAtual,
     required this.conquistas,
     required this.vidas,
+    required this.hasBuff,
+    required this.hasShield,
   });
 
   Map<String, dynamic> toJson({List<String>? progressoUrls}) => {
@@ -31,6 +35,8 @@ class UserModel {
         'conquistas': conquistas,
         'vidas': vidas,
         'progresso': progressoUrls ?? progresso,
+        'hasShield': hasShield,
+        'hasBuff': hasBuff,
       };
 
   static UserModel parse(Map<String, dynamic> post) {
@@ -55,6 +61,8 @@ class UserModel {
       moedaAtual: post['moedaAtual'],
       conquistas: post['conquistas'],
       vidas: post['vidas'],
+      hasBuff: post['hasBuff'],
+      hasShield: post['hasShield'],
       progresso: progressoAux,
     );
   }

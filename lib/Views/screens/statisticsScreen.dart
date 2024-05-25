@@ -24,15 +24,22 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _functionController.calcAchievements(
-        user: widget
-            .user); //TODO Depois remover daqui e colocar quando um exercício for concluído
+    _functionController.calcAchievements(user: widget.user);
 
     final User user = auth.currentUser!;
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
+          actions: [
+            IconButton(
+                onPressed: () async {
+                  await auth.signOut();
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/', (route) => false);
+                },
+                icon: const Icon(Icons.logout))
+          ],
           title: Text(
             'Seu Perfil',
             style:

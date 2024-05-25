@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:progaming/Views/screens/HomeScreen.dart';
 import 'package:progaming/Views/widgets/AchievementContainer.dart';
 import 'package:progaming/controller/FirebaseService.dart';
 import 'package:progaming/models/UserModel.dart';
@@ -12,10 +11,9 @@ class FunctionController {
     BuildContext context,
     UserModel user,
   ) async {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => HomeScreen(
-              user: user,
-            )));
+    Navigator.pushNamedAndRemoveUntil(
+        context, '/main-page-screen', (route) => false,
+        arguments: user);
   }
 
   List<Widget> calcMedals({required UserModel user}) {
@@ -408,7 +406,7 @@ class FunctionController {
         case "coin":
           String imgPath = 'assets/images/saco-dinheiro.jpg';
           String title = 'Magnata';
-          List<int> quantityList = [100, 500, 1000, 5000, 10000];
+          List<int> quantityList = [50, 100, 300, 500, 1000];
 
           int aux = user.moedaAtual;
 

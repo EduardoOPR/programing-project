@@ -29,7 +29,9 @@ class FirebaseController {
           moedaTotal: 0,
           moedaAtual: 0,
           conquistas: 0,
-          vidas: 5);
+          vidas: 5,
+          hasBuff: false,
+          hasShield: false);
 
       _firebaseService.createUser(user: newuser);
       return true;
@@ -45,7 +47,10 @@ class FirebaseController {
       UserCredential userCredential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: senha);
       if (userCredential != null) {
-        Navigator.pushNamed(context, '/main-page-screen');
+        Map<String, dynamic> userData = await _firebaseService.getUser(
+            userId: _firebaseAuth.currentUser!.uid);
+        final UserModel user = UserModel.parse(userData);
+        Navigator.pushNamed(context, '/main-page-screen', arguments: user);
       }
     } on FirebaseAuthException catch (e) {
       print('_____________________________________________');

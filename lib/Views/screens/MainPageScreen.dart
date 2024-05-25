@@ -21,10 +21,8 @@ class _MainPageScreenState extends State<MainPageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final userdata =
-        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
-    final UserModel user = UserModel.parse(userdata);
-    //print(user['vidas']);
+    final userdata = ModalRoute.of(context)?.settings.arguments as UserModel;
+    final UserModel user = userdata;
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
           iconSize: 32,

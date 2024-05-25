@@ -14,7 +14,7 @@ class NumberInstancesSection extends _NumberInstancesSection {
   }) : super(
           key: key,
           sectionData: CreationSectionData(
-            name: 'Variável',
+            name: 'Número',
             color: color,
           ),
         );
