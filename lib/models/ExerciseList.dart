@@ -2266,11 +2266,17 @@ class ExerciseController {
           title: 'Hora de praticar!',
           imgPath: 'assets/images/praticar.png',
           boxText: TextSpan(
-            text:
-                'Agora com o que já vimos fique a vontade e tente criar o que quiser. Caso queira uma sugestão, tente criar um código que leia dois valores digitados e no fim retorne a soma dos dois valores',
-            style: MyThemes.josefinSansRegular(
-                fontSize: 16, textColor: Colors.black),
-          ),
+              text: 'Primeiro Desafio!',
+              style: MyThemes.josefinSansBold(
+                  fontSize: 20,
+                  textColor: const Color.fromARGB(255, 196, 7, 7)),
+              children: <TextSpan>[
+                TextSpan(
+                    text:
+                        'Escreva um programa que leia um valor e depois Escreva esse valor vezes 2 na tela, ou seja,se o valor digitado for 4, aparecerá 8 na tela.',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
           total: 9,
           isExercise: false,
           exerciseType: '',
@@ -2283,10 +2289,46 @@ class ExerciseController {
             style: MyThemes.josefinSansRegular(
                 fontSize: 16, textColor: Colors.black),
           ),
-          title: 'Soma',
+          title: 'Desafio 1',
           total: 9,
-          answer: 0,
           isExercise: true,
+          answer: 0,
+          exerciseType: '2A',
+          showCategory: [false, true, false, false, true, false],
+          blockString: CalculatorAlgorithm.vazio,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+              text: 'Segundo Desafio!',
+              style: MyThemes.josefinSansBold(
+                  fontSize: 20,
+                  textColor: const Color.fromARGB(255, 196, 7, 7)),
+              children: <TextSpan>[
+                TextSpan(
+                    text:
+                        'Escreva um programa que leia dois números digitados e retorne a multiplicação, divisão, soma e subtração destes números.\nDica: Crie duas variáveis númericas e utilize dois blocos de Defina para guardar os valores digitados.',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'Desafio 2',
+          total: 9,
+          isExercise: true,
+          answer: 0,
           exerciseType: '2A',
           showCategory: [false, true, false, false, true, false],
           blockString: CalculatorAlgorithm.vazio,
@@ -2500,11 +2542,17 @@ class ExerciseController {
           title: 'Hora de praticar!',
           imgPath: 'assets/images/praticar.png',
           boxText: TextSpan(
-            text:
-                'Agora que você já viu quase todos os blocos de programação está na hora de praticar e entender como eles funcionam, tente criar um programa que leia um valor, se o valor for maior que 5 escreva algo na tela, se não, escreva uma outra mensagem na tela. Se quiser criar outro código fique a vontade!',
-            style: MyThemes.josefinSansRegular(
-                fontSize: 16, textColor: Colors.black),
-          ),
+              text: 'Primeiro Desafio!',
+              style: MyThemes.josefinSansBold(
+                  fontSize: 20,
+                  textColor: const Color.fromARGB(255, 196, 7, 7)),
+              children: <TextSpan>[
+                TextSpan(
+                    text:
+                        'Tente criar um programa que leia um valor, se o valor for maior que 5 escreva algo na tela, se não, escreva uma outra mensagem na tela.',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
           total: 9,
           isExercise: false,
           exerciseType: '',
@@ -2517,12 +2565,48 @@ class ExerciseController {
             style: MyThemes.josefinSansRegular(
                 fontSize: 16, textColor: Colors.black),
           ),
-          title: 'Soma',
+          title: 'Desafio 1',
           total: 9,
           isExercise: true,
           answer: 0,
           exerciseType: '2A',
-          showCategory: [false, true, false, false, true, false],
+          showCategory: [false, true, false, true, true, true],
+          blockString: CalculatorAlgorithm.vazio,
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          title: 'Hora de praticar!',
+          imgPath: 'assets/images/praticar.png',
+          boxText: TextSpan(
+              text: 'Segundo Desafio!',
+              style: MyThemes.josefinSansBold(
+                  fontSize: 20,
+                  textColor: const Color.fromARGB(255, 196, 7, 7)),
+              children: <TextSpan>[
+                TextSpan(
+                    text:
+                        'Escreva um programa que leia duas Strings, depois disso o programa deve escrevar na telas qual das duas Strings digitadas é maior.\nDica: Lembre dos métodos das Strings, um dos blocos informa o tamanho de uma String, use o valor desse bloco e salve ele em uma variável númerica para fazer as comparações!',
+                    style: MyThemes.josefinSansRegular(
+                        fontSize: 16, textColor: Colors.black)),
+              ]),
+          total: 9,
+          isExercise: false,
+          exerciseType: '',
+          selectedIndex: [false, false, false, false],
+        ),
+        ExerciseScreenInfo(
+          imgPath: '',
+          boxText: TextSpan(
+            text: '',
+            style: MyThemes.josefinSansRegular(
+                fontSize: 16, textColor: Colors.black),
+          ),
+          title: 'Desafio 2',
+          total: 9,
+          isExercise: true,
+          answer: 0,
+          exerciseType: '2A',
+          showCategory: [false, true, false, true, true, true],
           blockString: CalculatorAlgorithm.vazio,
           selectedIndex: [false, false, false, false],
         ),

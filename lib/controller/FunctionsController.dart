@@ -12,7 +12,7 @@ class FunctionController {
     UserModel user,
   ) async {
     Navigator.pushNamedAndRemoveUntil(
-        context, '/main-page-screen', (route) => false,
+        context, '/main-page-screen', (route) => true,
         arguments: user);
   }
 

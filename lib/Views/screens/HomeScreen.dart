@@ -34,15 +34,15 @@ class _HomeScreenState extends State<HomeScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       RenderBox box1 = ex1Key.currentContext!.findRenderObject()
           as RenderBox; //this is global position
-      y1 = box1.localToGlobal(Offset.zero).dy - 250;
+      y1 = box1.localToGlobal(Offset.zero).dy - 200;
 
       RenderBox box2 = ex2Key.currentContext!.findRenderObject()
           as RenderBox; //this is global position
-      y2 = box2.localToGlobal(Offset.zero).dy - 250;
+      y2 = box2.localToGlobal(Offset.zero).dy - 200;
 
       RenderBox box3 = ex3Key.currentContext!.findRenderObject()
           as RenderBox; //this is global position
-      y3 = box3.localToGlobal(Offset.zero).dy - 250;
+      y3 = box3.localToGlobal(Offset.zero).dy - 200;
     });
 
     scrollController = ScrollController();

@@ -53,13 +53,12 @@ class _ExerciseScreenState extends State<ExerciseScreen>
       exercisesList[i].vidas = user.vidas;
       exercisesList[i].total = exercisesList.length;
       exercisesList[i].isSelected = false;
+      if (exercisesList[i].exerciseType == '2A') {
+        exercisesList[i].timerReset = true;
+      }
       exercisesList[i].onTap = () {
         //Se não for tela de exercicio
         if (!exercisesList[i].isExercise) {
-          if (exercisesList[i + 1].exerciseType == '2A') {
-            var timerInfo = Provider.of<TimerInfo>(context, listen: false);
-            timerInfo.resetTimer();
-          }
           setState(() {
             if (pageIndex < exercisesList[pageIndex].total - 1) {
               pageIndex++;
@@ -323,8 +322,10 @@ class _ExerciseScreenState extends State<ExerciseScreen>
         moedas: moedas,
         pAcerto: pAcerto,
         ontap: () async {
-          await _firebaseService.updateUserData(data: user);
-          _functionController.pushPage(context, user);
+          await _firebaseService
+              .updateUserData(data: user)
+              .then((value) => _functionController.pushPage(context, user));
+          ;
         },
       );
     } else {

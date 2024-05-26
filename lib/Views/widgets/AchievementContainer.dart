@@ -56,7 +56,7 @@ class AchievementContainer extends StatelessWidget {
                       Text(
                         "${quantity.toString()} $subtext",
                         style: MyThemes.josefinSansRegular(
-                            fontSize: 16, textColor: Colors.black),
+                            fontSize: 14, textColor: Colors.black),
                       )
                     ],
                   )
@@ -75,7 +75,7 @@ class AchievementContainer extends StatelessWidget {
                       Text(
                         "${quantity.toString()} $subtext",
                         style: MyThemes.josefinSansRegular(
-                            fontSize: 16, textColor: Colors.black),
+                            fontSize: 14, textColor: Colors.black),
                       ),
                       const SizedBox(
                         height: 5,

@@ -35,6 +35,7 @@ class ExerciseScreenInfo extends StatefulWidget {
       this.imgScale = 1,
       this.isReview = false,
       this.isSelected = false,
+      this.timerReset = true,
       this.blockString = '',
       required this.selectedIndex});
 
@@ -56,6 +57,7 @@ class ExerciseScreenInfo extends StatefulWidget {
   bool isSelected;
   List<bool> showCategory;
   String blockString;
+  bool timerReset;
 
   @override
   State<ExerciseScreenInfo> createState() => _ExerciseScreenInfoState();
@@ -431,7 +433,7 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
             widget.blockString,
           ),
         );
-
+        bool reset = true;
         /* convertendo um projectModel em uma String
         print(CalculatorAlgorithm.serializedCode);
         print('__________________________________________________________');
@@ -440,11 +442,9 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
         */
 
         //Reseta o timer sempre que uma nova tela do tipo Programação em blocos é chamada
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          var timerInfo = Provider.of<TimerInfo>(context, listen: false);
-          timerInfo.resetTimer();
-        });
-
+        /*WidgetsBinding.instance.addPostFrameCallback((_) {
+          widget.timerInfo?.resetTimer();
+        });*/
         return Column(
           children: [
             Expanded(
@@ -485,12 +485,17 @@ class _ExerciseScreenInfoState extends State<ExerciseScreenInfo> {
                 height: height / 3,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Consumer<TimerInfo>(
               builder: (context, data, child) {
-                //data.resetTimer();
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  if (reset == true) {
+                    data.resetTimer();
+                    reset = false;
+                  }
+                });
                 return ExerciseColoredButton(
                   buttonText: data.getIsOver()
                       ? 'CONFIRMAR'

@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             context: context);
                       },
                     ),
-                    GestureDetector(
+                    /*GestureDetector(
                       onTap: () {},
                       child: Text(
                         'Esqueceu a Senha?',
@@ -91,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: TextDecoration.underline,
                         ),
                       ),
-                    ),
+                    ),*/
                   ],
                 ),
               ),

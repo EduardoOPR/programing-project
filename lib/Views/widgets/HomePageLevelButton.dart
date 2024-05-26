@@ -29,6 +29,8 @@ class HomePageLevelButton extends StatelessWidget {
             width: 65,
             height: 55,
             decoration: BoxDecoration(
+              image: const DecorationImage(
+                  image: AssetImage('assets/images/textura.png')),
               color: listID == 0
                   ? const Color(0xFFF72585)
                   : listID == 1
