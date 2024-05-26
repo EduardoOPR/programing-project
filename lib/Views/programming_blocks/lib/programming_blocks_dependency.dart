@@ -339,8 +339,8 @@ class ProgrammingBlocksDependency extends InheritedWidget {
       blockModel: _blockModel,
     );
     //TODO AQUI TÁ O SEGREDO
-    //print('__________________________');
-    //log(jsonEncode(projectModel.toJson()));
+    print('__________________________');
+    log(jsonEncode(projectModel.toJson()));
 
     return blockType!.execute(
       ExecutionBlockController(

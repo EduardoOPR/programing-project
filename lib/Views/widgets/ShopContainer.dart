@@ -23,7 +23,7 @@ class ShopContainer extends StatelessWidget {
       onTap: ontap,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.84,
-        height: MediaQuery.of(context).size.height * 0.168,
+        height: MediaQuery.of(context).size.height * 0.19,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           border: Border.all(width: 3, color: const Color(0xFF989898)),

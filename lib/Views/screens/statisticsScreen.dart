@@ -55,23 +55,29 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        user.displayName!,
-                        style: MyThemes.josefinSansBold(
-                            fontSize: 24, textColor: Colors.black),
+                  Flexible(
+                    child: Container(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            user.displayName!,
+                            style: MyThemes.josefinSansBold(
+                                fontSize: 24, textColor: Colors.black),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            'Conta criada em 2024',
+                            style: MyThemes.josefinSansLight(
+                                fontSize: 16, textColor: Colors.black),
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Conta criada em 2024',
-                        style: MyThemes.josefinSansLight(
-                            fontSize: 16, textColor: Colors.black),
-                      ),
-                    ],
+                    ),
                   ),
                   CircleAvatar(
                     backgroundColor: MyThemes.lightPurple,

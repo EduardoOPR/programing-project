@@ -57,7 +57,7 @@ class _ProgrammingBlocksViewState extends State<ProgrammingBlocksView> {
     ProgrammingBlocksProjectModel? projectModel;
     projectModel = ProgrammingBlocksProjectModel.fromJson(
       jsonDecode(
-        CalculatorAlgorithm.serializedCode,
+        CalculatorAlgorithm.variaveis,
       ),
     );
 

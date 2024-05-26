@@ -30,7 +30,7 @@ class ModifyNumberDialog extends VariableDialog<ConfigurationBlockModel> {
   @override
   void onAction(BuildContext context) {
     configBlockModel?.configArguments = {
-      'value': valueController.text,
+      'value': double.parse(valueController.text),
     };
     configBlockModel?.blockName = nameController.text;
     completer.complete(configBlockModel);

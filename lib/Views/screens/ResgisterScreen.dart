@@ -86,7 +86,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             await _firebaseController.cadastrarUsuario(
                                 nome: yourNameController.text,
                                 email: emailController.text,
-                                senha: passwordController.text);
+                                senha: passwordController.text,
+                                context: context);
 
                         if (result == true) {
                           Navigator.pop(context);

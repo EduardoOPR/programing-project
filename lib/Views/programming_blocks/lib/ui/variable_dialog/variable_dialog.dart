@@ -97,7 +97,7 @@ abstract class VariableDialog<T> extends StatelessWidget {
               builder: (context, valueError, _) {
                 return TextField(
                   focusNode: valueFocusNode,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     label: const Text(
                       'Valor',

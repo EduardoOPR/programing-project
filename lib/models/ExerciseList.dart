@@ -2273,7 +2273,7 @@ class ExerciseController {
               children: <TextSpan>[
                 TextSpan(
                     text:
-                        'Escreva um programa que leia um valor e depois Escreva esse valor vezes 2 na tela, ou seja,se o valor digitado for 4, aparecerá 8 na tela.',
+                        '\nEscreva um programa que leia um valor e depois Escreva esse valor vezes 2 na tela, ou seja,se o valor digitado for 4, aparecerá 8 na tela.',
                     style: MyThemes.josefinSansRegular(
                         fontSize: 16, textColor: Colors.black)),
               ]),
@@ -2309,7 +2309,7 @@ class ExerciseController {
               children: <TextSpan>[
                 TextSpan(
                     text:
-                        'Escreva um programa que leia dois números digitados e retorne a multiplicação, divisão, soma e subtração destes números.\nDica: Crie duas variáveis númericas e utilize dois blocos de Defina para guardar os valores digitados.',
+                        '\nEscreva um programa que leia dois números digitados e retorne a multiplicação, divisão, soma e subtração destes números.\nDica: Crie duas variáveis númericas e utilize dois blocos de Defina para guardar os valores digitados.',
                     style: MyThemes.josefinSansRegular(
                         fontSize: 16, textColor: Colors.black)),
               ]),
@@ -2549,7 +2549,7 @@ class ExerciseController {
               children: <TextSpan>[
                 TextSpan(
                     text:
-                        'Tente criar um programa que leia um valor, se o valor for maior que 5 escreva algo na tela, se não, escreva uma outra mensagem na tela.',
+                        '\nTente criar um programa que leia um valor, se o valor for maior que 5 escreva algo na tela, se não, escreva uma outra mensagem na tela.',
                     style: MyThemes.josefinSansRegular(
                         fontSize: 16, textColor: Colors.black)),
               ]),
@@ -2585,7 +2585,7 @@ class ExerciseController {
               children: <TextSpan>[
                 TextSpan(
                     text:
-                        'Escreva um programa que leia duas Strings, depois disso o programa deve escrevar na telas qual das duas Strings digitadas é maior.\nDica: Lembre dos métodos das Strings, um dos blocos informa o tamanho de uma String, use o valor desse bloco e salve ele em uma variável númerica para fazer as comparações!',
+                        '\nEscreva um programa que leia duas Strings, depois disso o programa deve escrevar na telas qual das duas Strings digitadas é maior.\nDica: Lembre dos métodos das Strings, um dos blocos informa o tamanho de uma String, use o valor desse bloco e salve ele em uma variável númerica para fazer as comparações!',
                     style: MyThemes.josefinSansRegular(
                         fontSize: 16, textColor: Colors.black)),
               ]),

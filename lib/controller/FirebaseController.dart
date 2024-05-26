@@ -12,7 +12,8 @@ class FirebaseController {
   Future<bool> cadastrarUsuario(
       {required String nome,
       required String email,
-      required String senha}) async {
+      required String senha,
+      required context}) async {
     try {
       UserCredential userCredential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: senha);
@@ -37,6 +38,13 @@ class FirebaseController {
       return true;
     } on FirebaseAuthException catch (e) {
       print(e);
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text(
+          'A senha deve ter pelo menos 6 caracteres',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
+        backgroundColor: Colors.redAccent,
+      ));
       return false;
     }
   }
