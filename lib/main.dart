@@ -1,4 +1,6 @@
 //import 'package:progaming/Views/screens/AchievementsScreen.dart';
+import 'package:flutter/services.dart';
+
 import 'package:progaming/Views/screens/ExerciseScreen.dart';
 import 'package:progaming/Views/screens/LoginScreen.dart';
 import 'package:progaming/Views/screens/MainPageScreen.dart';
@@ -6,7 +8,7 @@ import 'package:progaming/Views/screens/MainPageScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:progaming/Views/screens/ResgisterScreen.dart';
 import 'package:progaming/controller/TimerControler.dart';
-import 'package:progaming/Views/screens/ProgrammingBlocksView.dart';
+//import 'package:progaming/Views/screens/ProgrammingBlocksView.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:progaming/Views/screens/SplashScreen.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +18,10 @@ import 'package:device_preview/device_preview.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
