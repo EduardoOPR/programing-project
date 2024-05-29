@@ -145,12 +145,12 @@ class _ShopScreenState extends State<ShopScreen> {
                   title: 'O dobro ou nada',
                   containerText:
                       'Conclua o próximo exercicio sem errar e ganhe o dobro do prêmio',
-                  value: 200,
+                  value: 70,
                   ontap: () async {
-                    if (widget.user.moedaTotal >= 200 &&
+                    if (widget.user.moedaTotal >= 70 &&
                         widget.user.hasBuff == false) {
                       widget.user.hasBuff = true;
-                      widget.user.moedaAtual -= 200;
+                      widget.user.moedaAtual -= 70;
                       await _firebaseService.updateUserData(data: widget.user);
                       setState(() {});
                       final snackBar = buySnackBar(isBought: true);
